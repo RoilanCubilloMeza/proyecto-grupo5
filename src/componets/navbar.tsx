@@ -9,7 +9,7 @@ const NavbarComp = () => {
   const router = useRouter()
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="primary" expand="lg">
       <Container>
         <Link href="/" passHref>
           <Navbar.Brand>SISTEMA DE ANUNCIOS</Navbar.Brand>
@@ -31,10 +31,10 @@ const NavbarComp = () => {
             ) : (
               <>
                 <Link href="/signup" passHref>
-                  <Nav.Link>Signup</Nav.Link>
+                  <Nav.Link>inscribirse</Nav.Link>
                 </Link>
                 <Link href="/login" passHref>
-                  <Nav.Link>Login</Nav.Link>
+                  <Nav.Link>Ingresar</Nav.Link>
                 </Link>
               </>
             )}
