@@ -1,39 +1,14 @@
-import { auth } from './firebase/firebase'
-import {signInWithPopup, GoogleAuthProvider, FacebookAuthProvider} from "firebase/auth"
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Image from 'next/image'
+import styles from '../styles/Home.module.css'
 
-import {useAuthState} from "react-firebase-hooks/auth"
-import { useEffect } from "react"
-
-
-export default function Home() {
-  const [user,setuser]= useAuthState(auth);
-
-  const googleAuth= new GoogleAuthProvider();
-  const facebookAuth= new FacebookAuthProvider();
-
-const login = async()=>{
-const result = await signInWithPopup(auth,googleAuth);
-}
-const loginface = async()=>{
-  const result = await signInWithPopup(auth,facebookAuth);}
-
-useEffect(() => {
-  console.log(user)
-},[user]);
-
+const Home: NextPage = () => {
   return (
- <div>
-
-  <h1>
-    LOGIN
-  </h1>
-  <button onClick={login}>GOOGLE</button>
-  <button onClick={loginface}>FACEBOOK</button>
-
- </div>
- 
- 
+    <div className={styles.container}>
+      <h1>Next Firebase Auth</h1>
+    </div>
   )
 }
 
-
+export default Home
