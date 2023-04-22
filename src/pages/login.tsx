@@ -9,7 +9,6 @@ const Login = () => {
   const [data, setData] = useState({
     email: '',
     password: '',
-  
   })
 
   const handleLogin = async (e: any) => {

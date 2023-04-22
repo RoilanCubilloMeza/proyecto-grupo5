@@ -31,10 +31,10 @@ const NavbarComp = () => {
             ) : (
               <>
                 <Link href="/signup" passHref>
-                  <Nav.Link>inscribirse</Nav.Link>
+                  <Nav.Link>Signup</Nav.Link>
                 </Link>
                 <Link href="/login" passHref>
-                  <Nav.Link>Ingresar</Nav.Link>
+                  <Nav.Link>Login</Nav.Link>
                 </Link>
               </>
             )}
