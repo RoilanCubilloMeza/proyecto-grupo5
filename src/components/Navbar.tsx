@@ -9,10 +9,10 @@ const NavbarComp = () => {
   const router = useRouter()
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="primary" expand="lg">
       <Container>
         <Link href="/" passHref>
-          <Navbar.Brand>NextJS Firebase Auth</Navbar.Brand>
+          <Navbar.Brand>Inicio</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
