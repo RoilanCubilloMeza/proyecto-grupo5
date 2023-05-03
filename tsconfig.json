@@ -18,6 +18,6 @@
       "<nuevo>/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/signuptsx", "src/pages/signuptsx"],
+  "include": ["next-env.d.js", "**/*.ts", "**/*.tsx", "src/pages/signuptsx", "src/pages/signuptsx", "next.config.js", "tailwind.config.js"],
   "exclude": ["node_modules"]
 }

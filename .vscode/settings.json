@@ -3,8 +3,12 @@
         "ANUNCIOS",
         "componets",
         "firestore",
+        "hola",
+        "Inicio",
         "nuevo",
         "proyecto",
-        "Signup"
+        "Signup",
+        "titleid",
+        "tittleid"
     ]
 }

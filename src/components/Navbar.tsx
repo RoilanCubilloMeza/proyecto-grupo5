@@ -12,7 +12,7 @@ const NavbarComp = () => {
     <Navbar bg="primary" expand="lg">
       <Container>
         <Link href="/" passHref>
-          <Navbar.Brand>Inicio</Navbar.Brand>
+          <Navbar.Brand>Home</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
