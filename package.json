@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@firebase/firestore": "^3.11.0",
     "@firebase/storage": "^0.11.2",
     "@types/firebase": "^3.2.1",
     "@types/node": "18.15.13",
@@ -18,7 +19,7 @@
     "bootstrap": "^5.2.3",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
-    "firebase": "^9.20.0",
+    "firebase": "^9.21.0",
     "firebase-admin": "^11.7.0",
     "firebaseui": "^6.0.2",
     "googleapis": "^118.0.0",
