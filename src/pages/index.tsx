@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import VideoPlayer from "<nuevo>/pages/Anuncios";
+import BusSchedule from "<nuevo>/components/BusSchedule";
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,10 @@ const Home: NextPage = () => {
         <VideoPlayer videoId="https://youtu.be/SvhH287Xwcc" tittleId="hola" />
         <VideoPlayer videoId="https://youtu.be/SvhH287Xwcc" tittleId="comercial 2" />
       </div>
+      <div>
+      <h1>Horario de buses</h1>
+      <BusSchedule />
+    </div>
     </div>
   );
 };
