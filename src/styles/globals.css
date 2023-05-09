@@ -40,8 +40,8 @@ a {
   background-position: center center;
 }
 
-/* Height for devices larger than 576px */
-@media (min-width: 992px) {
+
+@media (min-width: 592px) {
   #introCarousel {
     margin-top: -58.59px;
   }

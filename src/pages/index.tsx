@@ -33,9 +33,9 @@ const Home: NextPage = () => {
           <Carrusel videos={videos} />
         </div>
         <div>
-        
       <div>
       <Marquee text="¡Proximos Viejes!" />
+      <span></span>
         < ScheduleCarousel/>
       </div>
       <div>

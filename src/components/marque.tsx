@@ -16,7 +16,7 @@ const Marquee: React.FC<MarqueeProps> = ({ text }) => {
   }, []);
 
   return (
-    <div className="marquee" ref={marqueeRef}>
+    <div className="marquee h-28" ref={marqueeRef}>
       <span>{text}</span>
     </div>
   );
