@@ -37,6 +37,7 @@ const RegistrationForm = () => {
 
   return (
     <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
+
     <form 
     onSubmit={handleSubmit}>
         <div className='m-10'>
