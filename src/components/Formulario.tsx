@@ -36,32 +36,34 @@ const RegistrationForm = () => {
   };
 
   return (
-    <form  className= "my-form"
+    <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
+    <form 
     onSubmit={handleSubmit}>
-        <div>
-      <div  >
-        <label htmlFor="name">Nombre:</label>
+        <div className='m-10'>
+      <div className='p-1'>
+        <label  htmlFor="name">Nombre:</label>
         <input type="text" id="name" value={name} onChange={handleNameChange} />
       </div>
-      <div>
+      <div className='p-1'>
         <label htmlFor="email">Correo electrónico:</label>
         <input type="email" id="email" value={email} onChange={handleEmailChange} />
       </div>
-      <div>
+      <div className='p-1'>
         <label htmlFor="company">Empresa:</label>
         <input type="text" id="company" value={company} onChange={handleCompanyChange} />
       </div>
-      <div>
+      <div className='p-1'>
         <label htmlFor="telephone">Telefono:</label>
         <input type="text" id="telephone" value={telephone} onChange={handleTelephoneChange} />
       </div>
-      <div>
+      <div className='p-1'>
         <label htmlFor="reason">Motivo:</label>
         <input type="text" id="reason" value={reason} onChange={handleReasonChange} />
       </div>
       </div>
-      <button type="submit">Enviar</button>
+      <button  type="submit">Enviar</button>
     </form>
+    </div>
   );
 };
 

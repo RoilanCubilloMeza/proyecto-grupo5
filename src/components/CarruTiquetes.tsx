@@ -49,8 +49,8 @@ const schedules = [
               src={schedule.image}
               alt={`${schedule.place} with ${schedule.conductor}`}
             />
-            <Carousel.Caption>
-                <h3>Ruta</h3>
+            <Carousel.Caption className='p-3 mb-2 text-primary'>
+                <h3>Ruta </h3>
               <h3>{schedule.place}</h3>
               <h4>Conductor</h4>
               <p>{schedule.conductor}</p>

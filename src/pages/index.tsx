@@ -28,6 +28,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Marquee text="¡Comerciales!" />
+
       <Marquee text="Empresas Asiciadad!" />
       <div>
         <div>
@@ -36,7 +37,7 @@ const Home: NextPage = () => {
         <div>
           <div>
             <Marquee text="¡Proximos Viajes!" />
-            <span></span>
+          
             < ScheduleCarousel />
           </div>
           <div>
