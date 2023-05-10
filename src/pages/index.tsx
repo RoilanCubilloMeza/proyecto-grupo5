@@ -40,9 +40,7 @@ const Home: NextPage = () => {
             < ScheduleCarousel />
           </div>
           <div>
-            <div className="container">
-              <div className="row justify-content-center">
-                <div className="col-md-6">
+           
                   <form>
                     <RegistrationForm />
                   </form>
@@ -53,9 +51,7 @@ const Home: NextPage = () => {
             
           </div>
 
-        </div>
-      </div>
-    </div>
+       
   );
 };
 

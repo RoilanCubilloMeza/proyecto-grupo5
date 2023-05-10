@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 const RegistrationForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -37,8 +36,10 @@ const RegistrationForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form  className= "my-form"
+    onSubmit={handleSubmit}>
+        <div>
+      <div  >
         <label htmlFor="name">Nombre:</label>
         <input type="text" id="name" value={name} onChange={handleNameChange} />
       </div>
@@ -57,6 +58,7 @@ const RegistrationForm = () => {
       <div>
         <label htmlFor="reason">Motivo:</label>
         <input type="text" id="reason" value={reason} onChange={handleReasonChange} />
+      </div>
       </div>
       <button type="submit">Enviar</button>
     </form>
