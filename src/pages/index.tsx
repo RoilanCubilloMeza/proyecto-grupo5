@@ -35,12 +35,22 @@ const Home: NextPage = () => {
         </div>
         <div>
           <div>
-            <Marquee text="¡Proximos Viejes!" />
+            <Marquee text="¡Proximos Viajes!" />
             <span></span>
             < ScheduleCarousel />
           </div>
           <div>
-            <RegistrationForm />
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-md-6">
+                  <form>
+                    <RegistrationForm />
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            
           </div>
 
         </div>
