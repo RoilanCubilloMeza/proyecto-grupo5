@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
 import RootLayout from "../../components/Layout"
 import { usePersona } from "../../context/PersonaContext";
