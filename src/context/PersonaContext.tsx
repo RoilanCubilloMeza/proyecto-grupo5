@@ -2,7 +2,7 @@ import firebaseApp from '../config/firebase'
 import React, { createContext, useContext, useState } from 'react'
 import {useRouter} from 'next/router'
 import {getFirestore, collection, addDoc, getDocs, doc, deleteDoc, getDoc, setDoc} from 'firebase/firestore'
-import { AnyARecord } from 'dns';
+
 
 interface Persona {
     nombre: string;
@@ -11,6 +11,7 @@ interface Persona {
     correo: string;
     telefono: string;
     motivo: string;
+    empresa: string
 }
 
 interface PersonaContextValue {
