@@ -59,8 +59,8 @@ export const UsuarioProvider = ( {children}:props ) => {
   
     const updateUsuario = async(id: string, updatedUsuario: Usuario) =>{
         try {
-            const personaRef = doc(db, 'usuarios', id);
-            await setDoc(personaRef, updatedUsuario);
+            const usuarioRef = doc(db, 'usuarios', id);
+            await setDoc(usuarioRef, updatedUsuario);
         }catch (error) {
             console.log(error);
         }
