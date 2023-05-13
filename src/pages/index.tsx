@@ -28,7 +28,7 @@ const videos = [
 const Home: NextPage = () => {
 
   return (
-    <div className="bg-secondary">
+    <div className="bg-secondary btn">
     <div className={styles.container}>
       <Marquee text="¡Comerciales!" />
       <Marquee text="Empresas Asiciadad!" />
