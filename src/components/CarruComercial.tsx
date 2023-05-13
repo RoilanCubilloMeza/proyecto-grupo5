@@ -13,7 +13,7 @@ interface CarruselProps {
 
 const Carrusel: React.FC<CarruselProps> = ({ videos }) => {
   return (
-    <Carousel className='embed-responsive embed-responsive-16by9' >
+    <Carousel className='embed-responsive embed-responsive-16by9 mt-3' >
       {videos.map((video) => (
         <Carousel.Item key={video.id}>
           <ReactPlayer url={video.url} width="100%" height="100%" />

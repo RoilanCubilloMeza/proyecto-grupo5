@@ -79,45 +79,43 @@ function personas() {
     };
 
     return(
-        <RootLayout>
         <PersonaProvider>    
-        <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
+        <div className='container mt-3 text-center form-control'>
             <form onSubmit={handleSubmit}>
                 <div className='m-10'>
                     <div className='p-1'>
-                        <label htmlFor="name">Nombre:</label>
-                        <input type="text" id="nameP" value={nameP} onChange={handleNameChange} />
+                        <label  className='form-label' htmlFor="name">Nombre:</label>
+                        <input className='form-control'  type="text" id="nameP" value={nameP} onChange={handleNameChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="name">Primer Apellido:</label>
-                        <input type="text" id="lastName1" value={lastName1} onChange={handleLastName1Change} />
+                        <label className='form-label' htmlFor="name">Primer Apellido:</label>
+                        <input className='form-control'  type="text" id="lastName1" value={lastName1} onChange={handleLastName1Change} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="name">Segundo Apellido:</label>
-                        <input type="text" id="lastName2" value={lastName2} onChange={handleLastName2Change} />
+                        <label className='form-label' htmlFor="name">Segundo Apellido:</label>
+                        <input className='form-control' type="text" id="lastName2" value={lastName2} onChange={handleLastName2Change} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="email">Correo electrónico:</label>
-                        <input type="email" id="email" value={email} onChange={handleEmailChange} />
+                        <label className='form-label' htmlFor="email">Correo electrónico:</label>
+                        <input  className='form-control'  type="email" id="email" value={email} onChange={handleEmailChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="company">Empresa:</label>
-                        <input type="text" id="company" value={company} onChange={handleCompanyChange} />
+                        <label className='form-label' htmlFor="company">Empresa:</label>
+                        <input  className='form-control'  type="text" id="company" value={company} onChange={handleCompanyChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="telephone">Telefono:</label>
-                        <input type="text" id="telephone" value={telephone} onChange={handleTelephoneChange} />
+                        <label className='form-label' htmlFor="telephone">Telefono:</label>
+                        <input  className='form-control'  type="text" id="telephone" value={telephone} onChange={handleTelephoneChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="reason">Motivo:</label>
-                        <input type="text" id="reason" value={reason} onChange={handleReasonChange} />
+                        <label className='form-label' htmlFor="reason">Motivo:</label>
+                        <input  className='form-control' type="text" id="reason" value={reason} onChange={handleReasonChange} />
                     </div>
                 </div>
-                <button type="submit">Enviar</button>
+                <button className="btn btn-primary" type="submit">Enviar</button>
             </form>
         </div>
         </PersonaProvider>
-        </RootLayout>
     );
     
 }

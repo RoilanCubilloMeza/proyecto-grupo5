@@ -51,33 +51,31 @@ function Rutas() {
     };
 
     return(
-        <RootLayout>
         <RutasProvider>    
-        <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
+        <div className='container mt-3 text-center form-control'>
             <form onSubmit={handleSubmit}>
                 <div className='m-10'>
                     <div className='p-1'>
-                        <label htmlFor="destino">Destino:</label>
-                        <input type="text" id="destino" value={destino} onChange={handleDestinoChange} />
+                        <label className='form-label'  htmlFor="destino">Destino:</label>
+                        <input  className='form-control'  type="text" id="destino" value={destino} onChange={handleDestinoChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="monto">Monto:</label>
-                        <input type="text" id="monto" value={monto} onChange={handleMontoChange} />
+                        <label  className='form-label' htmlFor="monto">Monto:</label>
+                        <input  className='form-control' type="text" id="monto" value={monto} onChange={handleMontoChange} />
 
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="origen">Origen:</label>
-                        <input type="text" id="origen" value={origen} onChange={handleOrigenChange} />
+                        <label  className='form-label' htmlFor="origen">Origen:</label>
+                        <input  className='form-control'  type="text" id="origen" value={origen} onChange={handleOrigenChange} />
                     </div>
 
                    
                     
                 </div>
-                <button type="submit">Enviar</button>
+                <button className="btn btn-primary" type="submit">Enviar</button>
             </form>
         </div>
         </RutasProvider>
-        </RootLayout>
     );
     
 }

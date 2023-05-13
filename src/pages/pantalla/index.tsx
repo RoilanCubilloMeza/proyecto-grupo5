@@ -43,25 +43,24 @@ function Pantalla() {
     };
 
     return(
-        <RootLayout>
+        
         <PantallaProvider>    
-        <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
+        <div className='container mt-3 text-center form-control'>
             <form onSubmit={handleSubmit}>
                 <div className='m-10'>
                     <div className='p-1'>
-                        <label htmlFor="numero">Numero:</label>
-                        <input type="text" id="numero" value={numero} onChange={handleNumeroChange} />
+                        <label className='form-label' htmlFor="numero">Numero:</label>
+                        <input  className='form-control' type="text" id="numero" value={numero} onChange={handleNumeroChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="posicion">Posicion:</label>
-                        <input type="text" id="posicion" value={posicion} onChange={handlePosicionChange} />
+                        <label  className='form-label' htmlFor="posicion">Posicion:</label>
+                        <input  className='form-control' type="text" id="posicion" value={posicion} onChange={handlePosicionChange} />
                     </div>
                 </div>
-                <button type="submit">Enviar</button>
+                <button className="btn btn-primary" type="submit">Enviar</button>
             </form>
         </div>
         </PantallaProvider>
-        </RootLayout>
     );
     
 }

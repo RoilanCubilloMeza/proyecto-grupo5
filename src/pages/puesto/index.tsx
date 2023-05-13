@@ -41,28 +41,26 @@ function Puestos() {
     };
 
     return(
-        <RootLayout>
         <PuestoProvider>    
-        <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
+        <div className='container mt-3 text-center form-control'>
             <form onSubmit={handleSubmit}>
                 <div className='m-10'>
                     <div className='p-1'>
-                        <label htmlFor="nombre">Nombre:</label>
-                        <input type="text" id="nombre" value={nombre} onChange={handleNombreChange} />
+                        <label className='form-label' htmlFor="nombre">Nombre:</label>
+                        <input className='form-control'  type="text" id="nombre" value={nombre} onChange={handleNombreChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="detalles">Detalles:</label>
-                        <input type="text" id="detalles" value={detalles} onChange={handleDetallesChange} />
+                        <label  className='form-label' htmlFor="detalles">Detalles:</label>
+                        <input  className='form-control' type="text" id="detalles" value={detalles} onChange={handleDetallesChange} />
                     </div>
 
                    
                     
                 </div>
-                <button type="submit">Enviar</button>
+                <button  className="btn btn-primary"type="submit">Enviar</button>
             </form>
         </div>
         </PuestoProvider>
-        </RootLayout>
     );
     
 }

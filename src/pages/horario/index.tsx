@@ -45,26 +45,24 @@ function Horario() {
     };
 
     return(
-        <RootLayout>
         <HorarioProvider>    
-        <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
+        <div className='container mt-3 text-center form-control'>
             <form onSubmit={handleSubmit}>
                 <div className='m-10'>
                     <div className='p-1'>
-                        <label htmlFor="id_ruta">Id Ruta:</label>
-                        <input type="text" id="id_ruta" value={id_ruta} onChange={handleIdRutaChange} />
+                        <label  className='form-label' htmlFor="id_ruta">Id Ruta:</label>
+                        <input  className='form-control' type="text" id="id_ruta" value={id_ruta} onChange={handleIdRutaChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="salida">Salida:</label>
-                        <input type="text" id="salida" value={salida} onChange={handleSalidaChange} />
+                        <label  className='form-label' htmlFor="salida">Salida:</label>
+                        <input   className='form-control' type="text" id="salida" value={salida} onChange={handleSalidaChange} />
                     </div>
               
                 </div>
-                <button type="submit">Enviar</button>
+                <button className=" btn btn-primary" type="submit">Enviar</button>
             </form>
         </div>
         </HorarioProvider>
-        </RootLayout>
     );
     
 }

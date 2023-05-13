@@ -4,6 +4,8 @@ import Carrusel from "<nuevo>/components/CarruComercial";
 import ScheduleCarousel from "<nuevo>/components/CarruTiquetes";
 import Marquee from "<nuevo>/components/marque";
 import RegistrationForm from "<nuevo>/components/Formulario";
+import Anuncio from "./anuncio";
+
 
 
 const videos = [
@@ -26,9 +28,9 @@ const videos = [
 const Home: NextPage = () => {
 
   return (
+    <div className="bg-secondary">
     <div className={styles.container}>
       <Marquee text="¡Comerciales!" />
-
       <Marquee text="Empresas Asiciadad!" />
       <div>
         <div>
@@ -37,22 +39,20 @@ const Home: NextPage = () => {
         <div>
           <div>
             <Marquee text="¡Proximos Viajes!" />
-          
             < ScheduleCarousel />
           </div>
           <div>
-           
-                  <form>
-                    <RegistrationForm />
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            
+            <form>
+              <RegistrationForm />
+            </form>
+        
           </div>
+        
+        </div>
+      </div>
+    </div>
+    </div>
 
-       
   );
 };
 

@@ -39,33 +39,35 @@ const RegistrationForm = () => {
   //agregar apellido1 y apellido2 
 
   return (
-    <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
-
+    <div className='container mt-3 text-center form-control'>
     <form 
     onSubmit={handleSubmit}>
-        <div className='m-10'>
-      <div className='p-1'>
-        <label  htmlFor="name">Nombre:</label>
-        <input type="text" id="name" value={name} onChange={handleNameChange} />
+      <div className='mb-3 mt-3'>
+          <h3> Mas Informacion</h3>
+          <div className='mb-3'>
+        <label   className='form-label' htmlFor="name">Nombre:</label>
+        <input className='form-control' type="text" id="name" value={name} onChange={handleNameChange} />
       </div>
-      <div className='p-1'>
-        <label htmlFor="email">Correo electrónico:</label>
-        <input type="email" id="email" value={email} onChange={handleEmailChange} />
+      <div className='mb-3'>
+        <label  className='form-label'htmlFor="email">Correo:</label>
+        <input className='form-control' type="text" id="email" value={email} onChange={handleEmailChange} />
       </div>
-      <div className='p-1'>
-        <label htmlFor="company">Empresa:</label>
-        <input type="text" id="company" value={company} onChange={handleCompanyChange} />
+      
+      <div className='mb-3'>
+        <label   className='form-label' htmlFor="company">Empresa:</label>
+        <input className='form-control' type="text" id="company" value={company} onChange={handleCompanyChange} />
       </div>
-      <div className='p-1'>
-        <label htmlFor="telephone">Telefono:</label>
-        <input type="text" id="telephone" value={telephone} onChange={handleTelephoneChange} />
+      <div className='mb-3'>
+        <label  className='form-label'htmlFor="telephone">Telefono:</label>
+        <input className='form-control' type="text" id="telephone" value={telephone} onChange={handleTelephoneChange} />
       </div>
-      <div className='p-1'>
-        <label htmlFor="reason">Motivo:</label>
-        <input type="text" id="reason" value={reason} onChange={handleReasonChange} />
+      <div className='mb-3'>
+        <label  className='form-label'htmlFor="reason">Motivo:</label>
+        <input  className='form-control'type="text" id="reason" value={reason} onChange={handleReasonChange} />
       </div>
+    
       </div>
-      <button  type="submit">Enviar</button>
+      <button  className='btn btn-success text-center' type="submit">Enviar</button>
     </form>
     </div>
   );

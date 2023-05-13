@@ -69,39 +69,38 @@ function Cliente() {
     };
 
     return(
-        <RootLayout>
+       
         <ClienteProvider>    
-        <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
+        <div className='container mt-3 text-center form-control'>
             <form onSubmit={handleSubmit}>
                 <div className='m-10'>
                     <div className='p-1'>
-                        <label htmlFor="nombre">Nombre:</label>
-                        <input type="text" id="Nombre" value={nombre} onChange={handleNombreChange} />
+                        <label className='form-label' htmlFor="nombre">Nombre:</label>
+                        <input className='form-control' type="text" id="Nombre" value={nombre} onChange={handleNombreChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="detalles">Detalles:</label>
-                        <input type="text" id="detalles" value={detalles} onChange={handleDetallesChange} />
+                        <label  className='form-label' htmlFor="detalles">Detalles:</label>
+                        <input className='form-control' type="text" id="detalles" value={detalles} onChange={handleDetallesChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="email">Email:</label>
-                        <input type="text" id="email" value={email} onChange={handleEmailChange} />
+                        <label className='form-label' htmlFor="email">Email:</label>
+                        <input className='form-control' type="text" id="email" value={email} onChange={handleEmailChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="pagina">Pagina:</label>
-                        <input type="text" id="pagina" value={pagina} onChange={handlePaginaChange} />
+                        <label className='form-label' htmlFor="pagina">Pagina:</label>
+                        <input className='form-control' type="text" id="pagina" value={pagina} onChange={handlePaginaChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="telefono">Info Adicional:</label>
-                        <input type="text" id="telefono" value={telefono} onChange={handleTelefonoChange} />
+                        <label className='form-label' htmlFor="telefono">Info Adicional:</label>
+                        <input className='form-control'  type="text" id="telefono" value={telefono} onChange={handleTelefonoChange} />
                     </div>
                    
                    
                 </div>
-                <button type="submit">Enviar</button>
+                <button  className="btn btn-primary" type="submit">Enviar</button>
             </form>
         </div>
         </ClienteProvider>
-        </RootLayout>
     );
     
 }

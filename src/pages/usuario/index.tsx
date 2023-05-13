@@ -51,33 +51,27 @@ function Usuarios() {
     };
 
     return(
-        <RootLayout>
         <UsuariosProvider>    
-        <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
+        <div className="container mt-3 text-center form-control">
             <form onSubmit={handleSubmit}>
                 <div className='m-10'>
                     <div className='p-1'>
-                        <label htmlFor="nombre">Nombre:</label>
-                        <input type="text" id="nombre" value={nombre} onChange={handleNombreChange} />
+                        <label className='form-label' htmlFor="nombre">Nombre:</label>
+                        <input className='form-control' type="text" id="nombre" value={nombre} onChange={handleNombreChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="pass">Contraseña:</label>
-                        <input type="text" id="pass" value={pass} onChange={handlePassChange} />
-
+                        <label  className='form-label' htmlFor="pass">Contraseña:</label>
+                        <input  className='form-control' type="text" id="pass" value={pass} onChange={handlePassChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="tipo">tipo:</label>
-                        <input type="text" id="tipo" value={tipo} onChange={handleTipoChange} />
+                        <label  className='form-label' htmlFor="tipo">tipo:</label>
+                        <input  className='form-control' type="text" id="tipo" value={tipo} onChange={handleTipoChange} />
                     </div>
-
-                   
-                    
                 </div>
-                <button type="submit">Enviar</button>
+                <button className="btn btn-primary" type="submit">Enviar</button>
             </form>
         </div>
         </UsuariosProvider>
-        </RootLayout>
     );
     
 }

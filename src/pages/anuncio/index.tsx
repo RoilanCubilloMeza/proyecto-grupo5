@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
 import RootLayout from "../../components/Layout"
-import { AnuncioProvider, useAnuncio } from '../../context/AnuncioContext';
+import { AnuncioProvider, useAnuncio } from "<nuevo>/context/AnuncioContext";
+
 
 interface Anuncio {
     descripcion: string;
@@ -75,34 +76,33 @@ function personas() {
     };
 
     return(
-        <RootLayout>
         <AnuncioProvider>    
         <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
             <form onSubmit={handleSubmit}>
                 <div className='m-10'>
                     <div className='p-1'>
-                        <label htmlFor="descripcion">Descripcion:</label>
-                        <input type="text" id="descripcion" value={descripcion} onChange={handleDescripcionChange} />
+                        <label className='form-label' htmlFor="descripcion">Descripcion:</label>
+                        <input className='form-control' type="text" id="descripcion" value={descripcion} onChange={handleDescripcionChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="detalles">Detalles:</label>
-                        <input type="text" id="detalles" value={detalles} onChange={handleDetallesChange} />
+                        <label className='form-label'   htmlFor="detalles">Detalles:</label>
+                        <input className='form-control' type="text" id="detalles" value={detalles} onChange={handleDetallesChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="cliente">Cliente:</label>
-                        <input type="text" id="cliente" value={id_cliente} onChange={handleIdClienteChange} />
+                        <label className='form-control' htmlFor="cliente">Cliente:</label>
+                        <input className='form-control' type="text" id="cliente" value={id_cliente} onChange={handleIdClienteChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="id_pantalla">Id Pantalla:</label>
-                        <input type="text" id="id_pantalla" value={id_pantalla} onChange={handleIDPantallaChange} />
+                        <label className='form-control' htmlFor="id_pantalla">Id Pantalla:</label>
+                        <input className='form-control'type="text" id="id_pantalla" value={id_pantalla} onChange={handleIDPantallaChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="Adicional">Info Adicional:</label>
-                        <input type="text" id="info_adicional" value={info_adicional} onChange={handleInfoAdicionalChange} />
+                        <label className='form-control' htmlFor="Adicional">Info Adicional:</label>
+                        <input className='form-control' type="text" id="info_adicional" value={info_adicional} onChange={handleInfoAdicionalChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="Link">Link:</label>
-                        <input type="text" id="link" value={link} onChange={handleLinkChange} />
+                        <label className='form-control' htmlFor="Link">Link:</label>
+                        <input className='form-control' type="text" id="link" value={link} onChange={handleLinkChange} />
                     </div>
                    
                 </div>
@@ -110,7 +110,6 @@ function personas() {
             </form>
         </div>
         </AnuncioProvider>
-        </RootLayout>
     );
     
 }

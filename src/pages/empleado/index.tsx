@@ -56,32 +56,28 @@ function Empleado() {
     };
 
     return(
-        <RootLayout>
         <EmpleadoProvider>    
-        <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
+        <div className='container mt-3 text-center form-control'>
             <form onSubmit={handleSubmit}>
                 <div className='m-10'>
                     <div className='p-1'>
-                        <label htmlFor="id_persona">ID Persona:</label>
-                        <input type="text" id="id_persona" value={id_persona} onChange={handleIdPersonaChange} />
+                        <label  className='form-label' htmlFor="id_persona">ID Persona:</label>
+                        <input   className='form-control' type="text" id="id_persona" value={id_persona} onChange={handleIdPersonaChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="id_puesto">Id Puesto:</label>
-                        <input type="text" id="id_puesto" value={id_puesto} onChange={handleIdPuestoChange} />
+                        <label className='form-label' htmlFor="id_puesto">Id Puesto:</label>
+                        <input className='form-control'  type="text" id="id_puesto" value={id_puesto} onChange={handleIdPuestoChange} />
                     </div>
                     <div className='p-1'>
-                        <label htmlFor="id_usuario">Id Usuario:</label>
-                        <input type="text" id="id_usuario" value={id_usuario} onChange={handleIdUsuarioChange} />
+                        <label className='form-label' htmlFor="id_usuario">Id Usuario:</label>
+                        <input   className='form-control'type="text" id="id_usuario" value={id_usuario} onChange={handleIdUsuarioChange} />
                     </div>
-                  
-                   
-                   
+
                 </div>
-                <button type="submit">Enviar</button>
+                <button   className="btn btn-primary" type="submit">Enviar</button>
             </form>
         </div>
         </EmpleadoProvider>
-        </RootLayout>
     );
     
 }
