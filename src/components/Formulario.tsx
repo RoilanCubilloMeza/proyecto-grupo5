@@ -39,7 +39,7 @@ const RegistrationForm = () => {
   //agregar apellido1 y apellido2 
 
   return (
-    <div className='container mt-3 text-center form-control'>
+    <div className='container mt-3 text-center form-control '>
     <form 
     onSubmit={handleSubmit}>
       <div className='mb-3 mt-3'>
