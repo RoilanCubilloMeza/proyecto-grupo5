@@ -45,7 +45,7 @@ const schedules = [
         {schedules.map((schedule) => (
           <Carousel.Item key={schedule.id}>
             <img
-              className="d-block w-100 mt-3 bg-secondary "
+              className="d-block w-100 mt-3 "
               src={schedule.image}
               alt={`${schedule.place} with ${schedule.conductor}`}
             />
