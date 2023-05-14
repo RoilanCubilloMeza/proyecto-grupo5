@@ -16,7 +16,7 @@ const Carrusel: React.FC<CarruselProps> = ({ videos }) => {
     <Carousel className='embed-responsive embed-responsive-16by9 ' >
       {videos.map((video) => (
         <Carousel.Item key={video.id}>
-          <ReactPlayer url={video.url} width="100%" height="100%" />
+          <ReactPlayer url={video.url} width="100%" height="100%" playing={true}/>
         </Carousel.Item>
       ))}
     </Carousel>
