@@ -29,11 +29,10 @@ const Home: NextPage = () => {
   return (
     <div className="bg-secondary">
     <div className={styles.container} >
-      <div className="bg-black">
+      <div className="bg-black p-3 ">
       <Marquee text="¡Comerciales!"  />
       <Marquee  text="Empresas Asiciadad!" />
       </div>
-      <div>
         <div>
           <Carrusel videos={videos} />
         </div>
@@ -42,7 +41,7 @@ const Home: NextPage = () => {
             <Marquee text="¡Proximos Viajes!" />
             < ScheduleCarousel />
           </div>
-          <div>
+          <div className="p-2">
             <form>
               <RegistrationForm />
             </form>
@@ -51,7 +50,6 @@ const Home: NextPage = () => {
         
         </div>
       </div>
-    </div>
     </div>
 
   );

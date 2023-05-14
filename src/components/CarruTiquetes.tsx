@@ -45,11 +45,11 @@ const schedules = [
         {schedules.map((schedule) => (
           <Carousel.Item key={schedule.id}>
             <img
-              className="d-block w-100 mt-3 "
+              className="d-block w-100   "
               src={schedule.image}
               alt={`${schedule.place} with ${schedule.conductor}`}
             />
-            <Carousel.Caption className='p-3 mb-2 text-lg'>
+            <Carousel.Caption className='p-3 text-lg'>
                 <h3>Ruta </h3>
               <h3>{schedule.place}</h3>
               <h4>Conductor</h4>
