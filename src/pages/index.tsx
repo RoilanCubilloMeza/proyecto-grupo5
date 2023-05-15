@@ -10,15 +10,15 @@ import RegistrationForm from "<nuevo>/components/Formulario";
 const videos = [
   {
     id: "video1",
-    url: "https://www.youtube.com/watch?v=tAqaq0tUrIM",
+    url: "https://www.youtube.com/embed/632ujcxK25Q",
   },
   {
     id: "video2",
-    url: "https://www.youtube.com/watch?v=ZnZqB5Z75zI",
+    url: "https://youtu.be/0XfzADCQV9s",
   },
   {
     id: "video3",
-    url: "https://www.youtube.com/watch?v=TrieMFaFSgU",
+    url: "https://youtu.be/byAN1CNeh84",
   },
 ];
 
