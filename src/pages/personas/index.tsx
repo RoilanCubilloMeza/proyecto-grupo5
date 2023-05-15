@@ -78,7 +78,7 @@ function personas() {
     };
 
     return(
-        <RootLayout>
+        <RootLayout >
         <PersonaProvider>    
         <div className='d-flex justify-content-center  p-3 mb-2 bg-secondary text-white'>
             <form onSubmit={handleSubmit}>
@@ -119,6 +119,6 @@ function personas() {
         </RootLayout>
     );
     
-}
+} // aqui puede estar el error revisar y corregir
 
 export default personas;

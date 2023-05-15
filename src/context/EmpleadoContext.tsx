@@ -24,9 +24,9 @@ interface props {
 const EmpleadoContext = createContext<EmpleadoContextValue | undefined>(undefined);
 
 const valorInicial = {
-    id_persona: " ";
-    id_puesto: " ";
-    id_usuario: " ";
+    id_persona: " ",
+    id_puesto: " ",
+    id_usuario: " ",
 }
 
 const db = getFirestore(firebaseApp)
