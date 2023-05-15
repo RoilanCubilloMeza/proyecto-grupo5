@@ -30,12 +30,37 @@ const NavbarComp = () => {
               </div>
             ) : (
               <>
-                <Link href="/signup" passHref>
-                  <Nav.Link>Signup</Nav.Link>
+                <Link  className='text-white  text-decoration-none  p-1' href='/signup' passHref>
+                  Inscribirse
                 </Link>
-                <Link href="/login" passHref>
-                  <Nav.Link>Login</Nav.Link>
+                <Link  className='text-white  text-decoration-none p-1' href="/login" passHref>
+                Ingresar
                 </Link>
+                <Link className='text-white  text-decoration-none p-1'  href="/anuncio" >
+                Anuncio
+                </Link>
+                <Link className='text-white  text-decoration-none p-1' href="/empleado">
+                Empleado
+                </Link>
+                <Link className='text-white  text-decoration-none p-1' href="/horario">
+                Horario
+                </Link>
+                <Link  className='text-white  text-decoration-none p-1' href="/pantalla">
+                Pantalla
+                </Link>
+                <Link className='text-white  text-decoration-none p-1' href="/personas">
+                Personas
+                </Link>
+                <Link className='text-white  text-decoration-none p-1'  href="/puesto">
+                Puesto
+                </Link>
+                <Link className='text-white  text-decoration-none p-1' href="/ruta">
+                Ruta
+                </Link>
+                <Link  className='text-white  text-decoration-none p-1' href="/usuario">
+                Usuario
+                </Link>
+             
               </>
             )}
           </Nav>
