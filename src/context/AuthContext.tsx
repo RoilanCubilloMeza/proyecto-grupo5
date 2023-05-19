@@ -5,11 +5,11 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth'
-import { auth } from '../config/firebase'
+import { auth } from '../database/config/firebase'
 
 const AuthContext = createContext<any>({})
 
-export const useAuth = () => useContext(AuthContext)
+export const useAuth = ()=>useContext(AuthContext)
 
 export const AuthContextProvider = ({
   children,

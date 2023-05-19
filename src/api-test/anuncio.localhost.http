@@ -1,0 +1,19 @@
+GET http://localhost:3000/api/anuncios
+
+GET  http://localhost:3000/api/anuncio/1
+
+POST http://localhost:3000/api/anuncios HTTP/1.1
+content-type: application/json
+
+{
+    "id": "Ruben"
+}
+
+
+PUT  http://localhost:3000/api/anuncios
+Content-Type: application/json
+{
+    "descripcion":" prueba"
+}
+
+DELETE http://localhost:3000/api/anuncios

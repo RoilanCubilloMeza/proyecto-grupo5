@@ -1,10 +1,9 @@
 import type { NextPage } from "next";
 import styles from "../styles/Home.module.css";
-import Carrusel from "<nuevo>/components/CarruComercial";
-import ScheduleCarousel from "<nuevo>/components/CarruTiquetes";
-import Marquee from "<nuevo>/components/marque";
-import RegistrationForm from "<nuevo>/components/Formulario";
-
+import Marquee from "@/components/marque";
+import Carrusel from "@/components/CarruComercial";
+import ScheduleCarousel from "@/components/CarruTiquetes";
+import RegistrationForm from "@/components/Formulario";
 
 
 const videos = [
@@ -28,11 +27,11 @@ const Home: NextPage = () => {
 
   return (
     <div className="bg-secondary">
-    <div className={styles.container} >
-      <div className="bg-black p-3 ">
-      <Marquee text="¡Comerciales!"  />
-      <Marquee  text="Empresas Asiciadad!" />
-      </div>
+      <div className={styles.container} >
+        <div className="bg-black p-3 ">
+          <Marquee text="¡Comerciales!" />
+          <Marquee text="!Empresas Asociadas!" />
+        </div>
         <div>
           <Carrusel videos={videos} />
         </div>
@@ -45,9 +44,7 @@ const Home: NextPage = () => {
             <form>
               <RegistrationForm />
             </form>
-        
           </div>
-        
         </div>
       </div>
     </div>

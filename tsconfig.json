@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "incremental": false,
     "paths": {
-      "<nuevo>/*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["next-env.d.js", "**/*.ts", "**/*.tsx", "src/pages/signuptsx", "src/pages/signuptsx", "next.config.js", "tailwind.config.js"],
