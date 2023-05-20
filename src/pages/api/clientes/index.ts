@@ -1,5 +1,5 @@
-import { clienteProvider } from "@/database/providers/clientes/cliente.provider";
-import { empleadoProvider } from "@/database/providers/empleados/emplado.provider";
+import { clienteProvider } from "@/database/providers/clientes/clientes.provider";
+import { empleadoProvider } from "@/database/providers/empleados/empleados.provider";
 import { notAllowedResponse } from "@/root/api/response/notAllowedResponse";
 import { NextApiRequest, NextApiResponse } from "next";
 

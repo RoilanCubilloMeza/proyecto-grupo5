@@ -1,4 +1,4 @@
-import { anuncioProvider } from "@/database/providers/anuncios/anuncio.provider";
+import { anuncioProvider } from "@/database/providers/anuncios/anuncios.provider";
 import { notAllowedResponse } from "@/root/api/response/notAllowedResponse";
 import { NextApiRequest, NextApiResponse } from "next";
 

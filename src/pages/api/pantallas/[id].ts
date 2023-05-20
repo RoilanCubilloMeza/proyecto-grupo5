@@ -1,4 +1,3 @@
-import { empleadoProvider } from "@/database/providers/empleados/emplado.provider";
 import { pantallasProvider } from "@/database/providers/pantallas/pantallas.provider";
 import { notAllowedResponse } from "@/root/api/response/notAllowedResponse";
 import { NextApiRequest, NextApiResponse } from "next";
