@@ -1,4 +1,4 @@
-import { puestoProvider } from "@/database/providers/puestos/puesto.provider";
+import { puestoProvider } from "@/database/providers/puestos/puestos.provider";
 import { notAllowedResponse } from "@/root/api/response/notAllowedResponse";
 import { NextApiRequest, NextApiResponse } from "next";
 

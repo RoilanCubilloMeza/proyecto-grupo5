@@ -1,4 +1,4 @@
-import { horarioProvider } from "@/database/providers/horarios/horario.provider";
+import { horarioProvider } from "@/database/providers/horarios/horarios.provider";
 import { notAllowedResponse } from "@/root/api/response/notAllowedResponse";
 import { NextApiRequest, NextApiResponse } from "next";
 

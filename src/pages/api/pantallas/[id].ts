@@ -1,12 +1,12 @@
 import { empleadoProvider } from "@/database/providers/empleados/emplado.provider";
-import { pantallaProvider } from "@/database/providers/pantallas/pantalla.provider";
+import { pantallasProvider } from "@/database/providers/pantallas/pantallas.provider";
 import { notAllowedResponse } from "@/root/api/response/notAllowedResponse";
 import { NextApiRequest, NextApiResponse } from "next";
 
 async function getById(req: NextApiRequest, res: NextApiResponse) {
   const id = Number(req.query.id);
   try {
-    const result = await pantallaProvider.getById(id);
+    const result = await pantallasProvider.getById(id);
     res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ message: (error as Error).message });
@@ -18,7 +18,7 @@ async function updateById(req: NextApiRequest, res: NextApiResponse) {
 
   const { name } = req.body;
   try {
-    await pantallaProvider.updateById(id, id { id, name });
+    await pantallasProvider.updateById(id, id { id, name });
     res.status(200).json({ id, message: "Information updated" });
   } catch (error) {
     res.status(500).json({ message: (error as Error).message });
@@ -28,7 +28,7 @@ async function updateById(req: NextApiRequest, res: NextApiResponse) {
 async function deleteById(req: NextApiRequest, res: NextApiResponse) {
   const id = Number(req.query.id);
   try {
-await pantallaProvider.deleteById(id);
+await pantallasProvider.deleteById(id);
     res.status(200).json({ id, message: "Information deleted" });
   } catch (error) {
     res.status(500).json({ message: (error as Error).message });
