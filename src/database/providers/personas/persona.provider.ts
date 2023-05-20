@@ -25,7 +25,7 @@ const create = async (name:string) => {
   return { id, name };
 };
 
-const updateById = async (id:string, entity:string) => {
+const updateById = async (id:string) => {
   const docRef = doc(db, "personas", id);
   const docSnapshot = await getDoc(docRef);
 

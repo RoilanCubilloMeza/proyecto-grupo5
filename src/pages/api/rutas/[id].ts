@@ -3,7 +3,7 @@ import { notAllowedResponse } from "@/root/api/response/notAllowedResponse";
 import { NextApiRequest, NextApiResponse } from "next";
 
 async function getById(req: NextApiRequest, res: NextApiResponse) {
-  const id = Number(req.query.id);
+  const id = String(req.query.id);
   try {
     const result = await rutaProvider.getById(id);
     res.status(200).json(result);
@@ -13,11 +13,11 @@ async function getById(req: NextApiRequest, res: NextApiResponse) {
 }
 
 async function updateById(req: NextApiRequest, res: NextApiResponse) {
-  const id = Number(req.query.id);
+  const id = String(req.query.id);
 
   const { name } = req.body;
   try {
-    await rutaProvider.updateById(id, id { id, name });
+    await rutaProvider.updateById(id);
     res.status(200).json({ id, message: "Information updated" });
   } catch (error) {
     res.status(500).json({ message: (error as Error).message });
@@ -25,9 +25,9 @@ async function updateById(req: NextApiRequest, res: NextApiResponse) {
 }
 
 async function deleteById(req: NextApiRequest, res: NextApiResponse) {
-  const id = Number(req.query.id);
+  const id = String(req.query.id);
   try {
-await rutaProvider.deleteById(id);
+    await rutaProvider.deleteById(id);
     res.status(200).json({ id, message: "Information deleted" });
   } catch (error) {
     res.status(500).json({ message: (error as Error).message });
@@ -41,7 +41,7 @@ handlers["DELETE"] = (req: NextApiRequest, res: NextApiResponse) => deleteById(r
 
 export default function authorsByIdController(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;
- 
-  const handler = handlers[method as keyof typeof handlers](req,res);
+
+  const handler = handlers[method as keyof typeof handlers](req, res);
   return handler! || notAllowedResponse(res, method!);
 }
