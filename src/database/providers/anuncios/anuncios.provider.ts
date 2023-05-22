@@ -12,11 +12,11 @@ const getById = async (id: string) => {
   const docSnapshot = await getDoc(docRef);
 
   if (docSnapshot.exists()) {
-    const author = docSnapshot.data();
-    return { id, ...author };
+    const anuncios = docSnapshot.data();
+    return { id, ...anuncios };
   }
 
-  throw new Error("Author not found");
+  throw new Error("acnuncio not found");
 };
 
 const create = async (name:string) => {

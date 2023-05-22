@@ -1,4 +1,4 @@
-export interface anuncio {
+export type Anuncio ={
   descripcion: string;
   detalles: string;
   id_cliente: string;

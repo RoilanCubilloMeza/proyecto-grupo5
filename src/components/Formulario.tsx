@@ -28,7 +28,6 @@ const RegistrationForm = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    //RegistrationForm
     console.log('Nombre:', name);
     console.log('Correo electrónico:', email);
     console.log('Empresa:', company);
@@ -36,7 +35,6 @@ const RegistrationForm = () => {
     console.log('Motivo:', reason);
   };
 
-  //agregar apellido1 y apellido2 
 
   return (
     <div className='container mt-3 text-center form-control '>

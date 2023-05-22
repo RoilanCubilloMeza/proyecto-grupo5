@@ -1,5 +1,7 @@
-import { initializeApp } from "firebase/app";
+import   { initializeApp }  from "firebase/app";
 import {getFirestore } from "firebase/firestore";
+import {getStorage} from"@firebase/storage"
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCeZ9s_BW639Wrim3zX2fbtcn0kR-7V5l4",
@@ -9,9 +11,12 @@ const firebaseConfig = {
     storageBucket: "proyecto-api-5b7c8.appspot.com",
     messagingSenderId: "932283162568",
     appId: "1:932283162568:web:0e86f4602c0706733a2afd",
-    measurementId: "G-20HCCMK81Q",
+    measurementId: "G-20HCCMK81Q"
   };
   
   const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+   export const db = getFirestore(app);
+  export const storage= getFirestore(app);
+  export const auth = getAuth(app);
+  
   export default db;

@@ -1,6 +1,7 @@
+import { useAuth } from '@/redux/actions/authActions'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
-import { useAuth } from '../context/AuthContext'
+
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user } = useAuth()
@@ -9,6 +10,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     if (!user) {
       router.push('/login')
+     
     }
   }, [router, user])
 

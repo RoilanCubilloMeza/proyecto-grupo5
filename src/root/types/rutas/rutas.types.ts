@@ -1,5 +1,5 @@
 
-export type  rutas={
+export type  Ruta={
 
    destino:string
    monto:number

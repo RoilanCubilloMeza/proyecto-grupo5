@@ -1,73 +1,71 @@
-import React, { useState } from 'react'
-import { Button, Form } from 'react-bootstrap'
-import { useAuth } from '../context/AuthContext'
+import  { useState } from 'react'
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { auth } from '@/database/config/firebase'
+import {  FormGroup, Row } from 'react-bootstrap'
+import Link from 'next/link'
+import { toast } from 'react-toastify'
+import { setDoc, doc } from '@firebase/firestore'
+import {db}  from "@/database/config/firebase"
+
 
 const Signup = () => {
-  const { user, signup } = useAuth()
-  console.log(user)
-  const [data, setData] = useState({
-    email: '',
-    password: '',
-  })
 
-  const handleSignup = async (e: any) => {
+const [username,setusername]= useState("")
+const [email,setemail]= useState("")
+const [password,setpassword]= useState("")
+const[loading, setLoading]= useState(false)
+
+
+  const signup = async (e: any) => {
     e.preventDefault()
+    setLoading(true)
 
     try {
-      await signup(data.email, data.password)
-    } catch (err) {
-      console.log(err)
-    }
+const userCredential = await  createUserWithEmailAndPassword(
+  auth,email,password)
+const user = userCredential.user ;
+await updateProfile(user,{
+  displayName: username});
 
-    console.log(data)
+  await setDoc(doc(db,"usuarios",user.uid),{
+    id: user.uid,
+    email:user.email,
+    displayNAme:username
   }
-
+  
+  )
+  setLoading(false);
+  toast.success("Creacion del usuario correcto");
+<Link href={"/login"}></Link>
+    }
+     catch (error) {
+      setLoading(false);
+      toast.error('Algo salio mal')
+    }
+  }
   return (
-    <div className=''
-      style={{
-        width: '40%',
-        margin: 'auto',
-      }}
-    >
-      <h1 className="text-center my-3 ">Signup</h1>
-      <Form onSubmit={handleSignup}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            required
-            onChange={(e: any) =>
-              setData({
-                ...data,
-                email: e.target.value,
-              })
-            }
-            value={data.email}
-          />
-        </Form.Group>
+    <Row>
+<form onSubmit={signup}>
+<FormGroup>
+  <input type="text" placeholder='user'value={username} 
+  onChange={(e)=> setusername(e.target.value)}/>
+</FormGroup>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            required
-            onChange={(e: any) =>
-              setData({
-                ...data,
-                password: e.target.value,
-              })
-            }
-            value={data.password}
-          />
-        </Form.Group>
+<FormGroup>
+  <input type="email" placeholder='email'value={email} 
+  onChange={(e)=> setemail(e.target.value)}/>
+</FormGroup>
 
-        <Button variant="primary" type="submit">
-          Signup
-        </Button>
-      </Form>
-    </div>
+<FormGroup>
+  <input type="password" placeholder='password'value={password} 
+  onChange={(e)=> setpassword(e.target.value)}/>
+</FormGroup>
+<button className='btn btn-primary' >Ingresar</button>
+<p>¿Tienes cuenta? ingresa Aqui
+<Link  className=" p-3 " href={'/login'} passHref>Iniciar Sesion </Link>
+   </p>
+</form>
+    </Row>
   )
 }
 

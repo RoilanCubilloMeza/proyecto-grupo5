@@ -1,16 +1,17 @@
 import React from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import Link from 'next/link'
-import { useAuth } from '@/context/AuthContext'
 import { useRouter } from 'next/router'
+import { useAuth } from '@/redux/actions/authActions'
 
 const NavbarComp = () => {
   const { user, logout } = useAuth()
   const router = useRouter()
 
   return (
-    <Navbar bg="primary" expand="lg">
-      <Container>
+    <div >
+    <Navbar bg="primary" expand="lg"  >
+      <Container  >
         <Link href="/" passHref>
           <Navbar.Brand>Home</Navbar.Brand>
         </Link>
@@ -25,48 +26,23 @@ const NavbarComp = () => {
                     router.push('/login')
                   }}
                 >
-                  Logout
+                  Salir
                 </Nav.Link>
               </div>
             ) : (
               <>
-                <Link  className='text-white  text-decoration-none  p-1' href='/signup' passHref>
-                  Inscribirse
+                <Link className="text-white text-decoration-none p-3 " href="/login" passHref>
+                 Login
                 </Link>
-                <Link  className='text-white  text-decoration-none p-1' href="/login" passHref>
-                Ingresar
-                </Link>
-                <Link className='text-white  text-decoration-none p-1'  href="/anuncio" >
-                Anuncio
-                </Link>
-                <Link className='text-white  text-decoration-none p-1' href="/empleado">
-                Empleado
-                </Link>
-                <Link className='text-white  text-decoration-none p-1' href="/horario">
-                Horario
-                </Link>
-                <Link  className='text-white  text-decoration-none p-1' href="/pantalla">
-                Pantalla
-                </Link>
-                <Link className='text-white  text-decoration-none p-1' href="/personas">
-                Personas
-                </Link>
-                <Link className='text-white  text-decoration-none p-1'  href="/puesto">
-                Puesto
-                </Link>
-                <Link className='text-white  text-decoration-none p-1' href="/ruta">
-                Ruta
-                </Link>
-                <Link  className='text-white  text-decoration-none p-1' href="/usuario">
-                Usuario
-                </Link>
-             
+              
+                
               </>
             )}
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </div>
   )
 }
 

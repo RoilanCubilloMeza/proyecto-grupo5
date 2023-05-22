@@ -1,4 +1,4 @@
-export type  empleados={
+export type  Empleado={
 
     id_persona:string
     id_puesto:string

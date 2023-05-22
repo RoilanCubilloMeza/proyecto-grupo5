@@ -2,24 +2,30 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from '../components/Navbar'
-import {Provider} from "react-redux"
-import { useEffect, useState } from 'react'
-import { onAuthStateChanged } from 'firebase/auth'
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { useRouter } from 'next/router'
+import ProtectedRoute from '../components/ProtectedRoute'
+import { Provider } from 'react-redux'
 import store from '@/redux/store'
+import AuthActions from '@/redux/actions/authActions'
+
+const noAuthRequired = ['/', '/login', '/signup']
 
 function MyApp({ Component, pageProps }: AppProps) {
-const [isAuth, setIsAuth]= useState(false)
-
-
-
+  const router = useRouter()
 
   return (
     <Provider store={store}>
-      <Navbar/>
-      <Component {...pageProps} />
+    <AuthActions>
+      
+      <Navbar />
+      {noAuthRequired.includes(router.pathname) ? (
+        <Component {...pageProps} />
+      ) : (
+        <ProtectedRoute>
+          <Component {...pageProps} />
+        </ProtectedRoute>
+      )}
+    </AuthActions>
     </Provider>
   )
 }

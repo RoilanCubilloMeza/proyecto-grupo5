@@ -1,4 +1,4 @@
-export type  puestos={
+export type  Puesto={
 
     detalles:string
     nombre:string

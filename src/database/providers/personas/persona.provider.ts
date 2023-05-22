@@ -30,7 +30,7 @@ const updateById = async (id:string) => {
   const docSnapshot = await getDoc(docRef);
 
   if (docSnapshot.exists()) {
-    await updateDoc(docRef, { name: entity });
+    await updateDoc(docRef, {id});
     return true;
   }
 

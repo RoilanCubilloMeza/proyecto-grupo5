@@ -1,15 +1,16 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
+import { configureStore } from "@reduxjs/toolkit"; 
+import { TypedUseSelectorHook, useSelector } from 'react-redux'
 
+//import { cartReducer } from './reducers/cart-reducer/cartReducer';
 
-const rootReducer = combineReducers({
+export const ApplicationStore = configureStore({
+  reducer: {
+    
+  }, 
 });
 
-const store = createStore(
-  rootReducer,
-  (applyMiddleware(thunk))
-);
+export type RootState = ReturnType<typeof ApplicationStore.getState>;
+export default ApplicationStore;
 
-export type RootState = ReturnType<typeof rootReducer>;
+export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector
 
-export default store;
