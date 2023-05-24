@@ -1,4 +1,8 @@
 export type  Pantalla={
- numero:number
- posicion:string
+ company: string
+ link:string
+ router:string
+ price:string
+ departureTime:string
+ images:string[];
      }

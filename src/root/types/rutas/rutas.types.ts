@@ -1,8 +1,6 @@
 
 export type  Ruta={
-
-   destino:string
-   monto:number
-   origen:string
-    
+router:string
+pricer:string
+departureTime:string   
     }

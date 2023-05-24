@@ -1,7 +1,7 @@
 import db from "@/database/config/firebase";
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs,  updateDoc } from "firebase/firestore";
 
-const getAll = async () => {
+export const getAll = async () => {
   const querySnapshot = await getDocs(collection(db, "anuncios"));
   const anuncios = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   return anuncios;

@@ -19,23 +19,23 @@ const Login = () => {
     console.log(user)
     try {
       await login(data.email, data.password)
-      router.push('/dashboard ')
+      router.push('/Dashboard ')
     } catch (err) {
       console.log(err)
     }
   }
 
   return (
-    <div
+    <div 
       style={{
         width: '40%',
         margin: 'auto',
       }}
     >
-      <h1 className="text-center my-3 ">Login</h1>
+      <h1 className="  text-center my-3 ">Login</h1>
       <Form onSubmit={handleLogin}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>Correo del usuario</Form.Label>
           <Form.Control
             onChange={(e: any) =>
               setData({
@@ -46,12 +46,12 @@ const Login = () => {
             value={data.email}
             required
             type="email"
-            placeholder="Enter email"
+            placeholder="correo"
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Contraseña</Form.Label>
           <Form.Control
             onChange={(e: any) =>
               setData({
@@ -62,13 +62,11 @@ const Login = () => {
             value={data.password}
             required
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Login
-        </Button>
-        <p>¿no tienes cuenta? ingresa aqui  <Link href="/signup">
+        <Button variant="primary" type="submit">Ingresar</Button>
+        <p className=''>¿no tienes cuenta? ingresa aqui  <Link href="/signup">
                   Registrar
                 </Link>
                 </p>

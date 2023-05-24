@@ -1,4 +1,3 @@
-import { rutaProvider } from "@/database/providers/rutas/rutas.provider";
 import { usuarioProvider } from "@/database/providers/usuarios/usuarios.provider";
 import { notAllowedResponse } from "@/root/api/response/notAllowedResponse";
 import { NextApiRequest, NextApiResponse } from "next";
