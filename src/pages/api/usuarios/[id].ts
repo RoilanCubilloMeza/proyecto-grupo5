@@ -17,7 +17,7 @@ async function updateById(req: NextApiRequest, res: NextApiResponse) {
 
   const { name } = req.body;
   try {
-    await usuarioProvider.updateById(id);
+    await usuarioProvider.updateById(id,name);
     res.status(200).json({ id, message: "Information updated" });
   } catch (error) {
     res.status(500).json({ message: (error as Error).message });

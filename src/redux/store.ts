@@ -1,14 +1,18 @@
-import { configureStore } from "@reduxjs/toolkit"; 
-import { TypedUseSelectorHook, useSelector } from 'react-redux'
-import { usuarioReducer } from "./reducers/usuariosReducer";
-
-export const ApplicationStore = configureStore({
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import usersReducer from "./slice/userSlice"
+import anunciosReducer from "./slice/anunciosSlice"
+export const store = configureStore({
   reducer: {
- usuario: usuarioReducer
-  }, 
+    users: usersReducer,
+    anuncios: anunciosReducer
+
+  },
 });
 
-export type RootState = ReturnType<typeof ApplicationStore.getState>;
-export default ApplicationStore;
-
-export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector
+export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>;

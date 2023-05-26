@@ -1,7 +1,6 @@
 import { Usuario } from "@/root/types/usuarios/usuarios.types";
-import { auth, db } from "@/database/config/firebase";
+import {  db } from "@/database/config/firebase";
 import {
-  Firestore,
   addDoc,
   collection,
   deleteDoc,
@@ -10,12 +9,11 @@ import {
   getDocs,
   updateDoc,
 } from "firebase/firestore";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { query } from "express";
 
 
 
-const getAll = async () => {
+
+export const getAll = async () => {
   const querySnapshot = await getDocs(collection(db, "usuarios"));
   const usuarios = querySnapshot.docs.map((doc) => ({
     id: doc.id,
@@ -23,6 +21,7 @@ const getAll = async () => {
   }));
   return usuarios;
 };
+
 const getById = async (id: string) => {
   const docRef = doc(db, "usuarios", id);
   const docSnapshot = await getDoc(docRef);
@@ -62,9 +61,6 @@ const deleteById = async (id: string) => {
 
   throw new Error("Usuario not found");
 };
-
-
-
 
 export const usuarioProvider = {
   getAll,

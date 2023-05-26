@@ -1,43 +1,56 @@
-import db from "@/database/config/firebase";
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs,  updateDoc } from "firebase/firestore";
+import { Usuario } from "@/root/types/usuarios/usuarios.types";
+import {  db } from "@/database/config/firebase";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  updateDoc,
+} from "firebase/firestore";
 
-export const getAll = async () => {
+
+
+
+export const getAllAnuncio = async () => {
   const querySnapshot = await getDocs(collection(db, "anuncios"));
-  const anuncios = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  const anuncios = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
   return anuncios;
 };
 
-const getById = async (id: string) => {
+const getByIdAnuncio = async (id: string) => {
   const docRef = doc(db, "anuncios", id);
   const docSnapshot = await getDoc(docRef);
-
   if (docSnapshot.exists()) {
     const anuncios = docSnapshot.data();
     return { id, ...anuncios };
   }
-
-  throw new Error("acnuncio not found");
+  throw new Error("usuarios not found");
 };
 
-const create = async (name:string) => {
+export const createAnuncio = async (name: string) => {
   const docRef = await addDoc(collection(db, "anuncios"), { name });
   const id = docRef.id;
   return { id, name };
 };
 
-const updateById = async (id:string) => {
+const updateByIdAnuncio = async (id: string, updatedData: Partial<Usuario>) => {
   const docRef = doc(db, "anuncios", id);
   const docSnapshot = await getDoc(docRef);
 
   if (docSnapshot.exists()) {
-    await updateDoc(docRef, {id});
+    await updateDoc(docRef, updatedData);
     return true;
   }
 
-  throw new Error("anuncio not found");
+  throw new Error("Usuario not found");
 };
 
-const deleteById = async (id:string) => {
+const deleteByIdAnuncio = async (id: string) => {
   const docRef = doc(db, "anuncios", id);
   const docSnapshot = await getDoc(docRef);
 
@@ -46,13 +59,13 @@ const deleteById = async (id:string) => {
     return true;
   }
 
-  throw new Error("anuncio not found");
+  throw new Error("Usuario not found");
 };
 
 export const anuncioProvider = {
-  getAll,
-  getById,
-  create,
-  updateById,
-  deleteById,
+  getAllAnuncio,
+  getByIdAnuncio,
+  createAnuncio,
+  updateByIdAnuncio,
+  deleteByIdAnuncio,
 };

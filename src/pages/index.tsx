@@ -1,10 +1,9 @@
-import type { NextPage } from "next";
 import styles from "../styles/Home.module.css";
 import Marquee from "@/components/marque";
 import Carrusel from "@/components/CarruComercial";
-import Link from "next/link";
-import CrearUsuarioForm from "@/components/CrearUsuarioForm";
-import UsuarioCreado from "@/components/UsuariosCreado";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+import { useEffect } from "react";
 
 const videos = [
   {
@@ -23,11 +22,10 @@ const videos = [
 
 
 
-const Home: NextPage = () => {
 
+const Home= () => {
 
-
-
+  
   return (
     <>
     <div >
@@ -39,11 +37,12 @@ const Home: NextPage = () => {
         <div>
           <Carrusel videos={videos} />
         </div>
- 
       </div>
       <div>
-        <CrearUsuarioForm/>
-        <UsuarioCreado/>
+
+
+      </div>
+      <div>
       </div>
     </div>
 
