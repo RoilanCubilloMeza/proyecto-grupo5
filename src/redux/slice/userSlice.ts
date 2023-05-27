@@ -6,7 +6,7 @@ interface User {
   id: number;
   name: string;
   email: string;
-  class : string
+  rol: string
 }
 
 interface UsersState {

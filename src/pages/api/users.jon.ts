@@ -4,7 +4,7 @@ interface User {
   id: number;
   name: string;
   email: string;
-  
+  rol:string
 }
 
 const users: User[] = [];
@@ -17,6 +17,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       id: Math.floor(Math.random() * 1000),
       name: req.body.name,
       email: req.body.email,
+      rol:  req.body.rol,
     };
     users.push(newUser);
     res.status(201).json(newUser);
@@ -26,6 +27,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       id: userId,
       name: req.body.name,
       email: req.body.email,
+      rol:  req.body.rol,
     };
     const index = users.findIndex((user) => user.id === userId);
     if (index !== -1) {

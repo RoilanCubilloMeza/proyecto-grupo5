@@ -3,7 +3,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 interface Anuncio {
   id: number;
   descripcion: string;
-  titulo: string;
+  tittle: string;
+  images:string
 }
 
 const anuncios: Anuncio[] = [];
@@ -15,7 +16,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const newanuncio: Anuncio = {
       id: Math.floor(Math.random() * 1000),
       descripcion: req.body.descripcion,
-      titulo: req.body.titulo,
+      tittle: req.body.tittle,
+      images:req.body.images
     };
     anuncios.push(newanuncio);
     res.status(201).json(newanuncio);
@@ -24,7 +26,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const updatedAnuncio: Anuncio = {
       id: anuncioId,
       descripcion: req.body.descripcion,
-      titulo: req.body.titulo,
+      tittle: req.body.tittle,
+      images:req.body.images
     };
     const index = anuncios.findIndex((anuncio) => anuncio.id === anuncioId);
     if (index !== -1) {
@@ -34,8 +37,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       res.status(404).json({ message: "User not found" });
     }
   } else if (req.method === "DELETE") {
-    const userId = Number(req.query.id);
-    const index = anuncios.findIndex((anuncio) => anuncio.id === userId);
+    const AnuncioId = Number(req.query.id);
+    const index = anuncios.findIndex((anuncio) => anuncio.id === AnuncioId);
     if (index !== -1) {
       anuncios.splice(index, 1);
       res.status(200).json({ message: "User deleted" });

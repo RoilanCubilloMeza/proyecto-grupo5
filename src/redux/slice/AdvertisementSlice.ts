@@ -5,7 +5,9 @@ import { RootState } from "../store";
 interface Anuncio {
   id: number;
   descripcion: string;
-  titulo: string;
+  tittle: string;
+  url: string;
+  images:string;
 }
 
 interface AnunciosState {

@@ -1,4 +1,3 @@
-import { RootState } from '../redux/store';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -13,8 +12,9 @@ import ReactPlayer from 'react-player';
 interface Anuncio {
   id: number;
   descripcion: string;
-  titulo: string;
+  tittle: string;
   url: string;
+  images:string
 
 }
 
@@ -42,9 +42,11 @@ export default function CarruselAnuncios() {
     <div id="carouselExampleSlidesOnly" className="carousel slide " data-ride="carousel">
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <Carousel className='d-block w-100'>
+          <Carousel className='d-block'>
             {anuncios.map((anuncio) => (
-              <Carousel.Item key={anuncio.id}>
+              <Carousel.Item className='bg-success h3' key={anuncio.id}>
+                {anuncio.tittle}
+                <img src={anuncio.images} width={100} height={100}/>
                 <ReactPlayer url={anuncio.url} 
                 playing={true}  width={1270}
               height={900}/>

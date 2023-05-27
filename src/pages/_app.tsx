@@ -9,6 +9,7 @@ import AuthActions from '@/redux/actions/authActions'
 import { store } from '@/redux/store'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Layout from '@/components/Layout'
 
 const noAuthRequired = ['/', '/login', '/signup']
 
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   
 
   return (
+    
 <Provider store={(store)}>    
 <AuthActions>
       <Navbar />
@@ -28,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
       
       )}
+      
     </AuthActions>
     </Provider>
   )
