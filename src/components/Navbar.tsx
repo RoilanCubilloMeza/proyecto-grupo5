@@ -5,45 +5,32 @@ import { useRouter } from 'next/router'
 import { useAuth } from '@/redux/actions/authActions'
 
 const NavbarComp = () => {
-  const { user, logout } = useAuth()
-  const router = useRouter()
+
+
+
+  const router = useRouter();
+
+  const handleLogout = () => {
+    // Lógica para cerrar sesión
+    router.push('/login');
+  };
 
   return (
-    <div >
-    <Navbar bg="primary" expand="lg"  >
-      <Container  >
-        <Link href="/" passHref>
-          <Navbar.Brand>Home</Navbar.Brand>
-        </Link>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            {user ? (
-              <div>
-                <Nav.Link
-                  onClick={() => {
-                    logout()
-                    router.push('/login')
-                  }}
-                >
-                  Salir
-                </Nav.Link>
-              </div>
-            ) : (
-              <>
-                <Link className="text-white text-decoration-none p-3 " href="/login" passHref>
-                 Login
-                </Link>
-              
-                
-              </>
-            )}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
+    <Navbar className='bg-primary container-fluid  '>
+      <nav className="navbar text-center navbar-expand-lg">
+          <div className="collapse navbar-collapse">
+            <ul className="navbar-nav">
+              <Link  className="text-white text-decoration-none p-3 " href={'/'} passHref>Inicio</Link>
+              <Link  className="text-white text-decoration-none p-3 " href={'/login'} passHref>Login</Link>
+              <Link  className="text-white text-decoration-none p-3 " href={'/signup'} passHref>Registarse</Link>
+            </ul>
+          </div>
+      </nav>
     </Navbar>
-    </div>
-  )
-}
+  );
+};
+
+
+
 
 export default NavbarComp

@@ -1,4 +1,4 @@
-import Carrusel from "@/components/CarruComercial";
+import Carrusel from "@/pages/AnunciosComercial";
 import ScheduleCarousel from "@/components/CarruTiquetes";
 import Marquee from "@/components/marque";
 

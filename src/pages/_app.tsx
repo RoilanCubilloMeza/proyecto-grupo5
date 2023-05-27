@@ -7,6 +7,8 @@ import ProtectedRoute from '../components/ProtectedRoute'
 import { Provider } from 'react-redux'
 import AuthActions from '@/redux/actions/authActions'
 import { store } from '@/redux/store'
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const noAuthRequired = ['/', '/login', '/signup']
 
@@ -22,9 +24,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       {noAuthRequired.includes(router.pathname) ? (
         <Component {...pageProps} />
       ) : (
-        <ProtectedRoute>
+       
           <Component {...pageProps} />
-        </ProtectedRoute>
+      
       )}
     </AuthActions>
     </Provider>

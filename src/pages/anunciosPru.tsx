@@ -8,12 +8,14 @@ import {
   updateAnuncios,
   deleteAnuncios,
   selectAnuncio,
-} from '../redux/slice/anunciosSlice';
+} from '../redux/slice/AdvertisementSlice';
 
 interface Anuncio {
   id: number;
   descripcion: string;
   titulo: string;
+  url: string;
+
 }
 
 export default function Anuncios() {
@@ -31,6 +33,8 @@ export default function Anuncios() {
       id: Math.floor(Math.random() * 1000),
       descripcion: " prueba",
       titulo: " prueba",
+      url: "",
+
 
     };
     dispatch(createAnuncios(newAnuncio));
@@ -41,6 +45,7 @@ export default function Anuncios() {
       id: anuncio.id,
       descripcion: "",
       titulo: "",
+      url: "",
 
     };
     dispatch(updateAnuncios(editedAnuncio));
@@ -51,7 +56,7 @@ export default function Anuncios() {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className='text-center h2 p-3'>Cargando...</div>;
   }
 
   if (error) {
@@ -69,7 +74,7 @@ export default function Anuncios() {
           {anuncio.descripcion}
           <p> Email</p>
           {anuncio.titulo}
-         
+          {anuncio.url}
           <button className='btn btn-success p-1 m-3' onClick={() => handleEditAnuncio(anuncio)}>Editar</button>
           <button className='btn btn-danger p-1' onClick={() => handleDeleteAnuncio(anuncio.id)}>Eliminar</button>
         </li>

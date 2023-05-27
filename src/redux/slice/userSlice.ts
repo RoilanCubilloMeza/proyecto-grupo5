@@ -41,7 +41,7 @@ export const deleteUser = createAsyncThunk('users/deleteUser', async (userId: nu
   return userId;
 });
 
-export const usersSlice = createSlice({
+export const loginSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {},
@@ -103,4 +103,4 @@ export const selectUsers = (state: RootState) => state.users.users;
 export const selectLoading = (state: RootState) => state.users.loading;
 export const selectError = (state: RootState) => state.users.error;
 
-export default usersSlice.reducer;
+export default loginSlice.reducer;

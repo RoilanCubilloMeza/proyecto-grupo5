@@ -2,7 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/users": "pages/users.js",
-  "/anunciosPru": "pages/anunciosPru.js",
-  "/api/usuarios": "pages/api/usuarios.js"
+  "/AnunciosComercial": "pages/AnunciosComercial.js",
+  "/api/anuncios": "pages/api/anuncios.js"
 }
