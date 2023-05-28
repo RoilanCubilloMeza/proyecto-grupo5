@@ -1,6 +1,7 @@
 import { usuarioProvider } from "@/database/providers/usuarios/usuarios.provider";
 import { notAllowedResponse } from "@/root/api/response/notAllowedResponse";
 import { NextApiRequest, NextApiResponse } from "next";
+import jwt from "jsonwebtoken";
 
 const getAll = async (res: NextApiResponse) => {
   try {
@@ -35,6 +36,7 @@ const register= async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(500).json({ message: (error as Error).message });
   }
 }
+
 
 const handlers: any = {};
 handlers["GET"] = (_req: NextApiRequest, res: NextApiResponse) => getAll(res);

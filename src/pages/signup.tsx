@@ -6,7 +6,7 @@ import {
   selectLoading,
   selectUsers,
  
-} from '../redux/slice/loginSlice';
+} from '../redux/slice/registerSlice';
 
 interface User {
   id: number;
@@ -57,6 +57,7 @@ export default function Users() {
   }
 
   return (
+    
     <div className='bg-secondary container text-center p-5 tab-content'>
       <h3>Register</h3>
       <div className='row  mb-4 p-3' >
