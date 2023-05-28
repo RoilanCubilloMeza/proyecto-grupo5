@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootState } from '../store';
 
@@ -24,7 +24,7 @@ const initialState: UsersState = {
 
 
 export const createUser = createAsyncThunk('users/createUser', async (newUser: Login) => {
-  const response = await axios.post('http://localhost:3000/api/usuarios', newUser);
+  const response = await axios.post('http://localhost:3000/api/login', newUser);
   return response.data;
 });
 

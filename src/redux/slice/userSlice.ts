@@ -26,7 +26,7 @@ export const getUsers = createAsyncThunk('users/getUsers', async () => {
   return response.data;
 });
 
-export const createUser = createAsyncThunk('users/createUser', async (newUser: User) => {
+export const createUser1 = createAsyncThunk('users/createUser1', async (newUser: User) => {
   const response = await axios.post('http://localhost:3000/api/usuarios', newUser);
   return response.data;
 });
@@ -60,16 +60,16 @@ export const loginSlice = createSlice({
         state.loading = false;
         state.error = action.error.message ?? 'Failed to fetch users';
       })
-      .addCase(createUser.pending, (state) => {
+      .addCase(createUser1.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(createUser.fulfilled, (state, action) => {
+      .addCase(createUser1.fulfilled, (state, action) => {
         state.users.push(action.payload);
         state.loading = false;
         state.error = null;
       })
-      .addCase(createUser.rejected, (state, action) => {
+      .addCase(createUser1.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message ?? 'Failed to create user';
       })

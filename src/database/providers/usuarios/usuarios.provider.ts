@@ -8,7 +8,6 @@ import {
   getDoc,
   getDocs,
   updateDoc,
-  
 } from "firebase/firestore";
 
 
@@ -34,17 +33,12 @@ const getById = async (id: string) => {
   throw new Error("usuarios not found");
 };
 
-export const create = async (name: string, email: string, rol: "admin" | "client",) => {
+export const create = async (name: string, email: string, rol: string,) => {
   const docRef = await addDoc(collection(db, "usuarios"), { name, email, rol });
   const id = docRef.id;
   return { id, name, email, rol };
 };
-export const register = async (name: string, email: string, rol: "client",password: string) => {
-  const docRef = await addDoc(collection(db, "usuarios"), { name, email, rol, password });
-  const id = docRef.id;
-  return { id, name, email, rol };
 
-}
 const updateById = async (id: string, updatedData: Partial<Usuario>) => {
   const docRef = doc(db, "usuarios", id);
   const docSnapshot = await getDoc(docRef);
@@ -74,5 +68,4 @@ export const usuarioProvider = {
   create,
   updateById,
   deleteById,
-  register,
 };

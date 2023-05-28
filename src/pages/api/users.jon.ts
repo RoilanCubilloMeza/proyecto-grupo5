@@ -5,6 +5,7 @@ interface User {
   name: string;
   email: string;
   rol:"client"
+  
 }
 
 const users: User[] = [];

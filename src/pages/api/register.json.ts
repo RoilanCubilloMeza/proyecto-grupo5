@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-const secretKey = "your-secret-key";
 
 interface login {
   id: number;

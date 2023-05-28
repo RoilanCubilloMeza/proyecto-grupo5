@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getUsers,
-  createUser,
+  createUser1,
   deleteUser,
   selectError,
   selectLoading,
@@ -47,7 +47,7 @@ export default function Users() {
   };
 
   const handleSaveUsers = () => {
-    newUsers.forEach((user) => dispatch(createUser(user)));
+    newUsers.forEach((user) => dispatch(createUser1(user)));
     setNewUsers([]);
   };
 
@@ -105,7 +105,6 @@ export default function Users() {
             {user.email}
             <p>Rol</p>
             {user.rol}
-            
             <button className='btn btn-success p-1 m-3' onClick={() => handleEditUser(user)}>
               Editar
             </button>
