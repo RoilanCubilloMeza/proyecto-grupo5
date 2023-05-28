@@ -4,14 +4,13 @@ import anunciosReducer from "./slice/AdvertisementSlice"
 import { useDispatch } from 'react-redux';
 import routeSlice from './slice/routeSlice';
 import pantallaSlice  from './slice/ScreenSlice';
+
 export const store = configureStore({
   reducer: {
     users: usersReducer,
     anuncios: anunciosReducer,
     rutas: routeSlice,
     pantallas: pantallaSlice,
-    
-
   },
 });
 

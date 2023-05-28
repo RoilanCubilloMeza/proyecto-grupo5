@@ -1,20 +1,21 @@
-import Link from "next/link"
+import { RootState } from '@/redux/store';
+import { useSelector } from 'react-redux';
 
-const dashboard=()=>{
+const DashboardPage = () => {
+  const user = useSelector((state: RootState) => state.auth.user);
 
-
-
-
-
-
-
-
-
-    return (
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      {user && (
         <div>
-<Link  className="text-black text-decoration-none p-3 " href={'/anunciosRuta'} passHref>Rutas</Link>
+          <p>Name: {user.name}</p>
+          <p>Email: {user.email}</p>
+          <p>Role: {user.role}</p>
+        </div>
+      )}
+    </div>
+  );
+};
 
-<Link  className="text-black text-decoration-none p-3 " href={'/prueba'} passHref>prueba</Link>   
-</div>)
-}
-export default dashboard
+export default DashboardPage;

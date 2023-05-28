@@ -1,5 +1,5 @@
 import { Usuario } from "@/root/types/usuarios/usuarios.types";
-import {  db } from "@/database/config/firebase";
+import {   db  } from "@/database/config/firebase";
 import {
   addDoc,
   collection,
@@ -9,8 +9,6 @@ import {
   getDocs,
   updateDoc,
 } from "firebase/firestore";
-
-
 
 
 export const getAll = async () => {
@@ -32,12 +30,17 @@ const getById = async (id: string) => {
   throw new Error("usuarios not found");
 };
 
-export const create = async (name: string) => {
-  const docRef = await addDoc(collection(db, "usuarios"), { name });
+export const create = async (name: string, email: string, rol: "admin" | "client",) => {
+  const docRef = await addDoc(collection(db, "usuarios"), { name, email, rol });
   const id = docRef.id;
-  return { id, name };
+  return { id, name, email, rol };
 };
+export const register = async (name: string, email: string, rol: "client",password: string) => {
+  const docRef = await addDoc(collection(db, "usuarios"), { name, email, rol, password });
+  const id = docRef.id;
+  return { id, name, email, rol };
 
+}
 const updateById = async (id: string, updatedData: Partial<Usuario>) => {
   const docRef = doc(db, "usuarios", id);
   const docSnapshot = await getDoc(docRef);
@@ -61,11 +64,11 @@ const deleteById = async (id: string) => {
 
   throw new Error("Usuario not found");
 };
-
 export const usuarioProvider = {
   getAll,
   getById,
   create,
   updateById,
   deleteById,
+  register,
 };

@@ -14,7 +14,22 @@ const getAll = async (res: NextApiResponse) => {
 const create = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { name } = req.body;
-    const entityCreated = await usuarioProvider.create(name);
+    const {email}= req.body
+    const {rol}= req.body
+    const entityCreated = await usuarioProvider.create(name,email,rol);
+    res.status(200).json(entityCreated);
+  } catch (error) {
+    res.status(500).json({ message: (error as Error).message });
+  }
+}
+
+const register= async (req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    const { name } = req.body;
+    const {email}= req.body
+    const {rol}= req.body
+    const {password}= req.body;
+    const entityCreated = await usuarioProvider.register(name,email,rol, password);
     res.status(200).json(entityCreated);
   } catch (error) {
     res.status(500).json({ message: (error as Error).message });
@@ -24,6 +39,9 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
 const handlers: any = {};
 handlers["GET"] = (_req: NextApiRequest, res: NextApiResponse) => getAll(res);
 handlers["POST"] = (req: NextApiRequest, res: NextApiResponse) => create(req, res);
+handlers["POST"] = (req: NextApiRequest, res: NextApiResponse) => register(req, res);
+
+
 
 export default function usuariosController(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;

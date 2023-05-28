@@ -4,7 +4,7 @@ interface User {
   id: number;
   name: string;
   email: string;
-  rol:string
+  rol:"client"
 }
 
 const users: User[] = [];
@@ -21,7 +21,26 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     };
     users.push(newUser);
     res.status(201).json(newUser);
-  } else if (req.method === "PUT") {
+
+  } else if(req.method==="PUT"){
+const userId = Number(req.query.id);
+    const updatedUser: User = {
+      id: userId,
+      name: req.body.name,
+      email: req.body.email,
+      rol:  req.body.rol,
+    };
+    const index = users.findIndex((user) => user.id === userId);
+    if (index !== -1) {
+      users[index] = updatedUser;
+      res.status(200).json(updatedUser);
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+
+
+  }
+  else if (req.method === "PUT") {
     const userId = Number(req.query.id);
     const updatedUser: User = {
       id: userId,
@@ -36,7 +55,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     } else {
       res.status(404).json({ message: "User not found" });
     }
-  } else if (req.method === "DELETE") {
+  }
+   else if (req.method === "DELETE") {
     const userId = Number(req.query.id);
     const index = users.findIndex((user) => user.id === userId);
     if (index !== -1) {
