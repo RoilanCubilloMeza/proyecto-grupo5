@@ -39,17 +39,18 @@ export const create = async (name: string, email: string, rol: string,) => {
   return { id, name, email, rol };
 };
 
-const updateById = async (id: string, updatedData: Partial<Usuario>) => {
+const updateById = async (id: string, name: string, rol: string,email:string) => {
   const docRef = doc(db, "usuarios", id);
   const docSnapshot = await getDoc(docRef);
 
   if (docSnapshot.exists()) {
-    await updateDoc(docRef, updatedData);
+    await updateDoc(docRef, { name: name, rol: rol ,email:email});
     return true;
   }
 
-  throw new Error("Usuario not found");
+  throw new Error("Usuario no encontrado");
 };
+
 
 const deleteById = async (id: string) => {
   const docRef = doc(db, "usuarios", id);

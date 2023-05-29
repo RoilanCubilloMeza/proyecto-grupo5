@@ -2,9 +2,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 interface Anuncio {
   id: number;
-  descripcion: string;
   tittle: string;
-  images:string
+  url:string;
 }
 
 const anuncios: Anuncio[] = [];
@@ -15,9 +14,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   } else if (req.method === "POST") {
     const newanuncio: Anuncio = {
       id: Math.floor(Math.random() * 1000),
-      descripcion: req.body.descripcion,
+      url: req.body.url,
       tittle: req.body.tittle,
-      images:req.body.images
     };
     anuncios.push(newanuncio);
     res.status(201).json(newanuncio);
@@ -25,9 +23,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const anuncioId = Number(req.query.id);
     const updatedAnuncio: Anuncio = {
       id: anuncioId,
-      descripcion: req.body.descripcion,
       tittle: req.body.tittle,
-      images:req.body.images
+      url:req.body.url,
     };
     const index = anuncios.findIndex((anuncio) => anuncio.id === anuncioId);
     if (index !== -1) {

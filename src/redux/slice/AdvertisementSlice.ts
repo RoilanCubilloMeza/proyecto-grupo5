@@ -4,10 +4,8 @@ import { RootState } from "../store";
 
 interface Anuncio {
   id: number;
-  descripcion: string;
   tittle: string;
   url: string;
-  images:string;
 }
 
 interface AnunciosState {
@@ -30,17 +28,10 @@ export const getAnuncios = createAsyncThunk(
   }
 );
 
-export const createAnuncios = createAsyncThunk(
-  "anuncios/createAnuncios",
-  async (newAnuncio: Anuncio) => {
-    const response = await axios.post(
-      "http://localhost:3000/api/anuncios",
-      newAnuncio
-    );
-    return response.data;
-  }
-);
-
+export const createAnuncios = createAsyncThunk( "anuncios/createAnuncios", async (newAnuncio: Anuncio) => {
+  const response = await axios.post('http://localhost:3000/api/anuncios', newAnuncio);
+  return response.data;
+});
 export const updateAnuncios = createAsyncThunk(
   "anuncios/updateAnuncios",
   async (anuncio: Anuncio) => {

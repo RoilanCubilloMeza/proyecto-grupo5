@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-
+import { Jwt } from "jsonwebtoken";
 interface login {
   id: number;
   name: string;
@@ -9,8 +9,6 @@ interface login {
 }
 
 const users: login[] = [];
-
-
 
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {

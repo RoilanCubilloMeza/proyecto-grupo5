@@ -19,10 +19,10 @@ const getById = async (id: string) => {
   throw new Error("pantalla not found");
 };
 
-const create = async (name:string) => {
-  const docRef = await addDoc(collection(db, "pantallas"), { name });
+const create = async (companyName:string,link:string,router:string,departureTime:string,images:string,price:string) => {
+  const docRef = await addDoc(collection(db, "pantallas"), { companyName,link,router,price,departureTime,images });
   const id = docRef.id;
-  return { id, name };
+  return { id, companyName };
 };
 
 const updateById = async (id:string) => {

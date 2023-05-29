@@ -10,6 +10,7 @@ interface User {
 }
 
 interface UsersState {
+  token: any;
   users: User[];
   loading: boolean;
   error: string | null;
@@ -19,6 +20,7 @@ const initialState: UsersState = {
   users: [],
   loading: false,
   error: null,
+  token: undefined
 };
 
 export const getUsers = createAsyncThunk('users/getUsers', async () => {
@@ -41,7 +43,7 @@ export const deleteUser = createAsyncThunk('users/deleteUser', async (userId: nu
   return userId;
 });
 
-export const loginSlice = createSlice({
+export const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {},
@@ -103,4 +105,4 @@ export const selectUsers = (state: RootState) => state.users.users;
 export const selectLoading = (state: RootState) => state.users.loading;
 export const selectError = (state: RootState) => state.users.error;
 
-export default loginSlice.reducer;
+export default usersSlice.reducer;

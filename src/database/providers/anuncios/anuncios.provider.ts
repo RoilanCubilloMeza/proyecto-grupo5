@@ -1,4 +1,3 @@
-import { Usuario } from "@/root/types/usuarios/usuarios.types";
 import {  db } from "@/database/config/firebase";
 import {
   addDoc,
@@ -32,22 +31,24 @@ const getByIdAnuncio = async (id: string) => {
   throw new Error("usuarios not found");
 };
 
-export const createAnuncio = async (name: string) => {
-  const docRef = await addDoc(collection(db, "anuncios"), { name });
+
+export const createAnuncio = async (tittle: string, url:string) => {
+  const docRef = await addDoc(collection(db, "anuncios"), { tittle, url});
   const id = docRef.id;
-  return { id, name };
+  return { id, tittle, url};
 };
 
-const updateByIdAnuncio = async (id: string, updatedData: Partial<Usuario>) => {
+
+const updateByIdAnuncio = async (id: string, tittle: string, url:string) => {
   const docRef = doc(db, "anuncios", id);
   const docSnapshot = await getDoc(docRef);
 
   if (docSnapshot.exists()) {
-    await updateDoc(docRef, updatedData);
+    await updateDoc(docRef, { tittle: tittle, url: url});
     return true;
   }
 
-  throw new Error("Usuario not found");
+  throw new Error("Usuario no encontrado");
 };
 
 const deleteByIdAnuncio = async (id: string) => {

@@ -30,8 +30,6 @@ const handlers: any = {};
 handlers["GET"] = (_req: NextApiRequest, res: NextApiResponse) => getAll(res);
 handlers["POST"] = (req: NextApiRequest, res: NextApiResponse) => create(req, res);
 
-
-
 export default function usuariosController(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;
 

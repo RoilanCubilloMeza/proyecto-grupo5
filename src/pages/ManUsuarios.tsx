@@ -15,7 +15,6 @@ interface User {
   name: string;
   email: string;
   rol: 'admin' | 'client';
- 
 }
 
 export default function Users() {
@@ -28,6 +27,7 @@ export default function Users() {
   const [newUserName, setNewUserName] = useState('');
   const [newUserEmail, setNewUserEmail] = useState('');
   const [newUserRole, setNewUserRole] = useState<'admin' | 'client'>('client');
+  const [editingUserId, setEditingUserId] = useState<number | null>(null);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -52,13 +52,24 @@ export default function Users() {
   };
 
   const handleEditUser = (user: User) => {
+    setNewUserName(user.name);
+    setNewUserEmail(user.email);
+    setNewUserRole(user.rol);
+    setEditingUserId(user.id);
+  };
+
+  const handleSaveUserChanges = () => {
     const editedUser: User = {
-      id: user.id,
-      name: user.name,
-      email: 'editeduser@example.com',
-      rol: 'client',
+      id: editingUserId!,
+      name: newUserName,
+      email: newUserEmail,
+      rol: newUserRole,
     };
     dispatch(updateUser(editedUser));
+    setEditingUserId(null);
+    setNewUserName('');
+    setNewUserEmail('');
+    setNewUserRole('client');
   };
 
   const handleDeleteUser = (userId: number) => {
@@ -88,7 +99,10 @@ export default function Users() {
           value={newUserEmail}
           onChange={(e) => setNewUserEmail(e.target.value)}
         />
-        <select value={newUserRole} onChange={(e) => setNewUserRole(e.target.value as 'admin' | 'client')}>
+        <select
+          value={newUserRole}
+          onChange={(e) => setNewUserRole(e.target.value as 'admin' | 'client')}
+        >
           <option value='admin'>Admin</option>
           <option value='client'>Client</option>
         </select>
@@ -100,14 +114,46 @@ export default function Users() {
         {users.map((user) => (
           <li className='list-group-item bg-light' key={user.id}>
             <p>Nombre</p>
-            {user.name}
+            {editingUserId === user.id ? (
+              <input
+                type='text'
+                value={newUserName}
+                onChange={(e) => setNewUserName(e.target.value)}
+              />
+            ) : (
+              user.name
+            )}
             <p>Email</p>
-            {user.email}
+            {editingUserId === user.id ? (
+              <input
+                type='text'
+                value={newUserEmail}
+                onChange={(e) => setNewUserEmail(e.target.value)}
+              />
+            ) : (
+              user.email
+            )}
             <p>Rol</p>
-            {user.rol}
-            <button className='btn btn-success p-1 m-3' onClick={() => handleEditUser(user)}>
-              Editar
-            </button>
+            {editingUserId === user.id ? (
+              <select
+                value={newUserRole}
+                onChange={(e) => setNewUserRole(e.target.value as 'admin' | 'client')}
+              >
+                <option value='admin'>Admin</option>
+                <option value='client'>Client</option>
+              </select>
+            ) : (
+              user.rol
+            )}
+            {editingUserId === user.id ? (
+              <button className='btn btn-success p-1 m-3' onClick={handleSaveUserChanges}>
+                Guardar
+              </button>
+            ) : (
+              <button className='btn btn-success p-1 m-3' onClick={() => handleEditUser(user)}>
+                Editar
+              </button>
+            )}
             <button className='btn btn-danger p-1' onClick={() => handleDeleteUser(user.id)}>
               Eliminar
             </button>

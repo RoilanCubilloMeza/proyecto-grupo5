@@ -12,13 +12,14 @@ async function getById(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
+
 async function updateById(req: NextApiRequest, res: NextApiResponse) {
   const id = String(req.query.id);
-
-  const { name } = req.body;
+  const { name, rol, email } = req.body;
+  
   try {
-    await usuarioProvider.updateById(id,name);
-    res.status(200).json({ id, message: "Information updated" });
+    await usuarioProvider.updateById(id, name, rol, email);
+    res.status(200).json({ id, message: "Información actualizada" });
   } catch (error) {
     res.status(500).json({ message: (error as Error).message });
   }

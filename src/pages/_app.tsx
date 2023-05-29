@@ -5,7 +5,6 @@ import Navbar from '../components/Navbar'
 import { useRouter } from 'next/router'
 import ProtectedRoute from '../components/ProtectedRoute'
 import { Provider } from 'react-redux'
-import AuthActions from '@/redux/actions/authActions'
 import { store } from '@/redux/store'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -21,7 +20,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     
 <Provider store={(store)}>    
-<AuthActions>
       <Navbar />
       {noAuthRequired.includes(router.pathname) ? (
         <Component {...pageProps} />
@@ -31,7 +29,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       
       )}
       
-    </AuthActions>
     </Provider>
   )
 }

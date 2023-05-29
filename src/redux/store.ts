@@ -4,6 +4,7 @@ import anunciosReducer from "./slice/AdvertisementSlice"
 import { useDispatch } from 'react-redux';
 import routeSlice from './slice/routeSlice';
 import pantallaSlice  from './slice/ScreenSlice';
+import { loginSlice } from './slice/registerSlice';
 
 export const store = configureStore({
   reducer: {

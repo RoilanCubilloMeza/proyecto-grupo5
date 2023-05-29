@@ -6,59 +6,65 @@ import {
   selectError,
   selectAnuncio,
 } from '../redux/slice/AdvertisementSlice';
-import { Carousel } from 'react-bootstrap';
 import ReactPlayer from 'react-player';
-
-interface Anuncio {
-  id: number;
-  descripcion: string;
-  tittle: string;
-  url: string;
-  images:string
-
-}
+import Marquee from '@/components/marque';
 
 export default function CarruselAnuncios() {
   const dispatch = useDispatch();
   const anuncios = useSelector(selectAnuncio);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isCarouselStopped, setIsCarouselStopped] = useState(false);
 
   useEffect(() => {
     dispatch(getAnuncios());
   }, [dispatch]);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsCarouselStopped(true);
+    }, 60000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  useEffect(() => {
+    if (!isCarouselStopped) {
+      const interval = setInterval(() => {
+        setActiveIndex((prevIndex) => (prevIndex === anuncios.length - 1 ? 0 : prevIndex + 1));
+      }, 60000);
+  
+      return () => clearInterval(interval);
+    }
+  }, [isCarouselStopped, anuncios.length]);
+
+  const handleVideoEnded = () => {
+    setActiveIndex((prevIndex) => (prevIndex === anuncios.length - 1 ? 0 : prevIndex + 1));
+  };
 
   if (loading) {
-    return <div className='text-center h2 p-3'>Cargando...</div>;
+    return <div className="text-center h2 p-3">Cargando...</div>;
   }
 
   if (error) {
     return <div>Error: {error}</div>;
   }
 
-
   return (
-    <div id="carouselExampleSlidesOnly" className="carousel slide " data-ride="carousel">
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <Carousel className='d-block'>
-            {anuncios.map((anuncio) => (
-              <Carousel.Item className='bg-success h3' key={anuncio.id}>
-                {anuncio.tittle}
-                <img src={anuncio.images} width={100} height={100}/>
-                <ReactPlayer url={anuncio.url} 
-                playing={true}  width={1270}
-              height={900}/>
-
-              </Carousel.Item>
-            ))}
-          </Carousel>
+    <div className="carousel">
+      {anuncios.map((anuncio, index) => (
+        <div key={anuncio.id} className={index === activeIndex ? 'carousel-item active' : 'carousel-item'}>
+          <Marquee text={anuncio.tittle} />
+          <ReactPlayer
+            url={anuncio.url}
+            playing={index === activeIndex}
+            width={1366}
+            height={650}
+            onEnded={handleVideoEnded}
+          />
         </div>
-      </div>
+      ))}
     </div>
-
-  )
+  );
 }
-
-
