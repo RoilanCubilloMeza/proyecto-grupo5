@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/ManAnuncios": "pages/ManAnuncios.js",
-  "/api/anuncios/[id]": "pages/api/anuncios/[id].js",
-  "/api/anuncios": "pages/api/anuncios.js"
+  "/ManRutes": "pages/ManRutes.js",
+  "/api/rutas/[id]": "pages/api/rutas/[id].js",
+  "/api/rutas": "pages/api/rutas.js"
 }

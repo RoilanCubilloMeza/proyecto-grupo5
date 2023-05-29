@@ -25,6 +25,7 @@ export default function Anuncios() {
   const [editedAnuncio, setEditedAnuncio] = useState<Anuncio | null>(null);
   const [newTittle, setNewTittle] = useState('');
   const [newUrl, setNewUrl] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     dispatch(getAnuncios());
@@ -56,6 +57,10 @@ export default function Anuncios() {
     dispatch(deleteAnuncios(anuncioId));
   };
 
+  const filteredAnuncios = anuncios.filter(anuncio =>
+    anuncio.tittle.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   if (loading) {
     return <div className='text-center h2 p-3'>Cargando...</div>;
   }
@@ -66,43 +71,56 @@ export default function Anuncios() {
 
   return (
     <div className='container text-center p-3'>
-      <div>
+      <div className='p-3 form-control'>
         <input
+          className='form-control'
+          type='text'
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+          placeholder='Buscar anuncio por Título'
+        />
+      </div>
+      <div className='p-3 form-control '>
+        <input
+          className='form-control'
           type='text'
           value={newTittle}
-          onChange={(e) => setNewTittle(e.target.value)}
+          onChange={e => setNewTittle(e.target.value)}
           placeholder='Título del anuncio'
         />
         <input
+          className='form-control'
           type='text'
           value={newUrl}
-          onChange={(e) => setNewUrl(e.target.value)}
+          onChange={e => setNewUrl(e.target.value)}
           placeholder='URL del anuncio'
         />
-        <button className='btn btn-primary' onClick={handleCreateAnuncio}>
+        <button className='btn btn-primary mt-2' onClick={handleCreateAnuncio}>
           Nuevo Anuncio
         </button>
       </div>
       <div className='list-group p-3'>
-        {anuncios.map((anuncio) => (
+        {filteredAnuncios.map(anuncio => (
           <li className='list-group-item bg-light' key={anuncio.id}>
-            <p>Descripción</p>
+            <p className='mb-1'>Descripción</p>
             {editedAnuncio && editedAnuncio.id === anuncio.id ? (
               <div>
                 <input
+                  className='form-control mb-1'
                   type='text'
                   value={editedAnuncio.tittle}
-                  onChange={(e) =>
+                  onChange={e =>
                     setEditedAnuncio({ ...editedAnuncio, tittle: e.target.value })
                   }
                 />
                 <input
+                  className='form-control mb-1'
                   type='text'
                   value={editedAnuncio.url}
-                  onChange={(e) => setEditedAnuncio({ ...editedAnuncio, url: e.target.value })}
+                  onChange={e => setEditedAnuncio({ ...editedAnuncio, url: e.target.value })}
                 />
                 <button
-                  className='btn btn-success p-1 m-3'
+                  className='btn btn-success p-1 mr-2'
                   onClick={handleSaveAnuncioChanges}
                 >
                   Guardar
@@ -110,10 +128,10 @@ export default function Anuncios() {
               </div>
             ) : (
               <div>
-                <p>{anuncio.tittle}</p>
-                <p>{anuncio.url}</p>
+                <p className='mb-1'>{anuncio.tittle}</p>
+                <p className='mb-1'>{anuncio.url}</p>
                 <button
-                  className='btn btn-success p-1 m-3'
+                  className='btn btn-success p-1 mr-2'
                   onClick={() => handleEditAnuncio(anuncio)}
                 >
                   Editar

@@ -15,15 +15,15 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/ManAnuncios": [
+    "/": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/ManAnuncios.js"
+      "static/chunks/pages/index.js"
     ],
-    "/ManScreen": [
+    "/ManRutes": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/ManScreen.js"
+      "static/chunks/pages/ManRutes.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
