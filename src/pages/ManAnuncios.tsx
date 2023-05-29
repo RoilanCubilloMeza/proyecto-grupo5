@@ -22,8 +22,7 @@ export default function Anuncios() {
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
-  const [editedTittle, setEditedTittle] = useState('');
-  const [editedUrl, setEditedUrl] = useState('');
+  const [editedAnuncio, setEditedAnuncio] = useState<Anuncio | null>(null);
   const [newTittle, setNewTittle] = useState('');
   const [newUrl, setNewUrl] = useState('');
 
@@ -43,19 +42,14 @@ export default function Anuncios() {
   };
 
   const handleEditAnuncio = (anuncio: Anuncio) => {
-    setEditedTittle(anuncio.tittle);
-    setEditedUrl(anuncio.url);
+    setEditedAnuncio(anuncio);
   };
 
-  const handleSaveAnuncioChanges = (anuncioId: number) => {
-    const editedAnuncio: Anuncio = {
-      id: anuncioId,
-      tittle: editedTittle,
-      url: editedUrl,
-    };
-    dispatch(updateAnuncios(editedAnuncio));
-    setEditedTittle('');
-    setEditedUrl('');
+  const handleSaveAnuncioChanges = () => {
+    if (editedAnuncio) {
+      dispatch(updateAnuncios(editedAnuncio));
+      setEditedAnuncio(null);
+    }
   };
 
   const handleDeleteAnuncio = (anuncioId: number) => {
@@ -93,30 +87,31 @@ export default function Anuncios() {
         {anuncios.map((anuncio) => (
           <li className='list-group-item bg-light' key={anuncio.id}>
             <p>Descripción</p>
-            {anuncio.tittle}
-            <p>URL</p>
-            {anuncio.url}
-            {editedTittle === anuncio.tittle ? (
+            {editedAnuncio && editedAnuncio.id === anuncio.id ? (
               <div>
                 <input
                   type='text'
-                  value={editedTittle}
-                  onChange={(e) => setEditedTittle(e.target.value)}
+                  value={editedAnuncio.tittle}
+                  onChange={(e) =>
+                    setEditedAnuncio({ ...editedAnuncio, tittle: e.target.value })
+                  }
                 />
                 <input
                   type='text'
-                  value={editedUrl}
-                  onChange={(e) => setEditedUrl(e.target.value)}
+                  value={editedAnuncio.url}
+                  onChange={(e) => setEditedAnuncio({ ...editedAnuncio, url: e.target.value })}
                 />
                 <button
                   className='btn btn-success p-1 m-3'
-                  onClick={() => handleSaveAnuncioChanges(anuncio.id)}
+                  onClick={handleSaveAnuncioChanges}
                 >
                   Guardar
                 </button>
               </div>
             ) : (
               <div>
+                <p>{anuncio.tittle}</p>
+                <p>{anuncio.url}</p>
                 <button
                   className='btn btn-success p-1 m-3'
                   onClick={() => handleEditAnuncio(anuncio)}

@@ -13,8 +13,10 @@ const getAll = async (res: NextApiResponse) => {
 
 const create = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { name } = req.body;
-    const entityCreated = await rutaProvider.create(name);
+    const { router } = req.body;
+    const { price } = req.body;
+    const { departureTime } = req.body;
+    const entityCreated = await rutaProvider.create(router,price,departureTime);
     res.status(200).json(entityCreated);
   } catch (error) {
     res.status(500).json({ message: (error as Error).message });

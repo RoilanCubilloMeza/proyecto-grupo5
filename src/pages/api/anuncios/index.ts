@@ -13,8 +13,8 @@ const getAllAnuncio = async (res: NextApiResponse) => {
 
 const createAnuncio = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { tittle } = req.body;
-    const { url } = req.body;
+    const {tittle} = req.body;
+    const {url} = req.body;
     const entityCreated = await anuncioProvider.createAnuncio(tittle,url);
     res.status(200).json(entityCreated);
   } catch (error) {

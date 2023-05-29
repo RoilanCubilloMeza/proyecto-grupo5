@@ -15,10 +15,15 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/ManUsuarios": [
+    "/ManAnuncios": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/ManUsuarios.js"
+      "static/chunks/pages/ManAnuncios.js"
+    ],
+    "/ManScreen": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/ManScreen.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
@@ -29,11 +34,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
-    ],
-    "/signup": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/signup.js"
     ]
   },
   "ampFirstPages": []

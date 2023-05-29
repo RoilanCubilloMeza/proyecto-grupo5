@@ -19,13 +19,13 @@ const getById = async (id: string) => {
   throw new Error("ruta not found");
 };
 
-const create = async (name:string) => {
-  const docRef = await addDoc(collection(db, "rutas"), { name });
+const create = async (router:string,price:string,departureTime:string) => {
+  const docRef = await addDoc(collection(db, "rutas"), { router,price,departureTime });
   const id = docRef.id;
-  return { id, name };
+  return { id, router,price,departureTime };
 };
 
-const updateById = async (id:string) => {
+const updateById = async (id:string, ) => {
   const docRef = doc(db, "rutas", id);
   const docSnapshot = await getDoc(docRef);
 

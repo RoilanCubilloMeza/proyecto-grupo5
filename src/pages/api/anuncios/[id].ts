@@ -14,11 +14,11 @@ async function getByIdAnuncio(req: NextApiRequest, res: NextApiResponse) {
 
 async function updateByIdAnuncio(req: NextApiRequest, res: NextApiResponse) {
   const id = String(req.query.id);
-  const { title } = req.body;
-  const{url}=req.body;
+  const { tittle,url} = req.body;
+  
   try {
-    await anuncioProvider.updateByIdAnuncio(id,title,url);
-    res.status(200).json({ id, message: "Information updated" });
+    await anuncioProvider.updateByIdAnuncio(id, tittle, url);
+    res.status(200).json({ id, message: "Información actualizada" });
   } catch (error) {
     res.status(500).json({ message: (error as Error).message });
   }
