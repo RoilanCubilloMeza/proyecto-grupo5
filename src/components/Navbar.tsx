@@ -11,6 +11,7 @@ const NavbarComp = () => {
   const router = useRouter();
 
   const handleLogout = () => {
+    //TODO: remove unnecessary comments
     // Lógica para cerrar sesión
     router.push('/login');
   };

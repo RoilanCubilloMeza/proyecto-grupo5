@@ -24,7 +24,7 @@ const initialState: PantallasState = {
   loading: false,
   error: null,
 };
-
+//TODO: Move all thunks to another files, check errors , manage async cycle
 export const getPantallas = createAsyncThunk('pantallas/getPantallas', async () => {
   const response = await axios.get('http://localhost:3000/api/pantallas');
   return response.data;

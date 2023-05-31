@@ -22,7 +22,7 @@ const register = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 
-const handlers: any = {};
+const handlers: any = {}; //TODO: changes all any 
 handlers["POST"] = (req: NextApiRequest, res: NextApiResponse) =>
   register(req, res);
 

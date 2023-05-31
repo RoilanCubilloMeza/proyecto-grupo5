@@ -21,7 +21,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     };
     rutas.push(newrutes);
     res.status(201).json(newrutes);
-  } else if (req.method === "PUT") {
+  } else if (req.method === "PUT") {// TODO: improve the nested if else structure for clean code
     const rutesId = Number(req.query.id);
     const updatedRutes: Ruta = {
       id: rutesId,

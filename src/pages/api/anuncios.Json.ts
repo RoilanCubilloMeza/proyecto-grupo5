@@ -19,7 +19,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     };
     anuncios.push(newanuncio);
     res.status(201).json(newanuncio);
-  } else if (req.method === "PUT") {
+  } else if (req.method === "PUT") {// TODO: improve the nested if else structure for clean code
     const anuncioId = Number(req.query.id);
     const updatedAnuncio: Anuncio = {
       id: anuncioId,

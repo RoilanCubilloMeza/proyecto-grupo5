@@ -28,7 +28,7 @@ const RegistrationForm = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('Nombre:', name);
+    console.log('Nombre:', name); //TODO: remove al logs
     console.log('Correo electrónico:', email);
     console.log('Empresa:', company);
     console.log('Telefono:', telephone);

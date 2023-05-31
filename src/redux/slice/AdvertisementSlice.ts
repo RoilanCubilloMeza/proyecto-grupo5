@@ -19,7 +19,7 @@ const initialState: AnunciosState = {
   loading: false,
   error: null,
 };
-
+//TODO: Move all thunks to another files, check errors , manage async cycle
 export const getAnuncios = createAsyncThunk(
   "anuncios/getAnuncios",
   async () => {

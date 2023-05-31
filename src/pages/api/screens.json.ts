@@ -28,7 +28,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     };
     pantallas.push(newpantallas);
     res.status(201).json(newpantallas);
-  } else if (req.method === "PUT") {
+  } else if (req.method === "PUT") {// TODO: improve the nested if else structure for clean code
     const pantallasId = Number(req.query.id);
     const updatedPantallas: Pantalla = {
       id: pantallasId,
@@ -43,7 +43,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     if (index !== -1) {
         pantallas[index] = updatedPantallas;
       res.status(200).json(updatedPantallas);
-    } else {
+    } else { // TODO: improve the nested if else structure for clean code
       res.status(404).json({ message: "pantallas not found" });
     }
   } else if (req.method === "DELETE") {

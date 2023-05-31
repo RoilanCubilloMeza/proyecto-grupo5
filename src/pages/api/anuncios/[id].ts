@@ -34,7 +34,7 @@ async function deleteByIdAnuncio(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-const handlers: any = {};
+const handlers: any = {}; //TODO: changes all any 
 handlers["GET"] = (req: NextApiRequest, res: NextApiResponse) => getByIdAnuncio(req, res);
 handlers["PUT"] = (req: NextApiRequest, res: NextApiResponse) => updateByIdAnuncio(req, res);
 handlers["DELETE"] = (req: NextApiRequest, res: NextApiResponse) => deleteByIdAnuncio(req, res);

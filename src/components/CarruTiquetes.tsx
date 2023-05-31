@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
-
+//TODO: remove this boilerplate information
 const schedules = [
     {
       id: 1,

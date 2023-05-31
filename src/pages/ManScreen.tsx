@@ -21,7 +21,7 @@
         departureTime: string;
         images: string;
       }
-      
+      //TODO: Check the names in the file and functional component
 export default function Pantalla() {
   const dispatch = useDispatch();
   const pantalla = useSelector(selectPantallas);

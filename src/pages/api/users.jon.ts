@@ -23,7 +23,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     users.push(newUser);
     res.status(201).json(newUser);
 
-  } else if(req.method==="PUT"){
+  } else if(req.method==="PUT"){// TODO: improve the nested if else structure for clean code
 const userId = Number(req.query.id);
     const updatedUser: User = {
       id: userId,

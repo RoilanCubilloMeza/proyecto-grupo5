@@ -22,7 +22,7 @@ const initialState: UsersState = {
   error: null,
 };
 
-
+//TODO: Move all thunks to another files, check errors , manage async cycle
 export const createUser = createAsyncThunk('users/createUser', async (newUser: Login) => {
   const response = await axios.post('http://localhost:3000/api/login', newUser);
   return response.data;

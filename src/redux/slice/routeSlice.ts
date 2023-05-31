@@ -20,7 +20,7 @@ const initialState: RutasState = {
   loading: false,
   error: null,
 };
-
+//TODO: Move all thunks to another files, check errors , manage async cycle
 export const getRutas = createAsyncThunk(
   "rutas/getRutas",
   async () => {

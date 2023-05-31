@@ -14,7 +14,7 @@ interface User {
   password: string;
   rol: "client";
 }
-
+//TODO: Check the names in the file and functional component
 export default function Users() {
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);

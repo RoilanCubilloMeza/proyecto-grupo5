@@ -1,4 +1,4 @@
-
+//TODO: Check the names in the file and functional component
 const Empresas: React.FC = () => {
     return (
       <div  className="container d-flex align-items-center justify-content-center h2">

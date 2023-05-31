@@ -34,7 +34,7 @@ async function deleteById(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-const handlers: any = {};
+const handlers: any = {}; //TODO: changes all any 
 handlers["GET"] = (req: NextApiRequest, res: NextApiResponse) => getById(req, res);
 handlers["PUT"] = (req: NextApiRequest, res: NextApiResponse) => updateById(req, res);
 handlers["DELETE"] = (req: NextApiRequest, res: NextApiResponse) => deleteById(req, res);

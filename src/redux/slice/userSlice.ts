@@ -10,7 +10,7 @@ interface User {
 }
 
 interface UsersState {
-  token: any;
+  token: any;//TODO: changes all any 
   users: User[];
   loading: boolean;
   error: string | null;
@@ -22,7 +22,7 @@ const initialState: UsersState = {
   error: null,
   token: undefined
 };
-
+//TODO: Move all thunks to another files, check errors , manage async cycle
 export const getUsers = createAsyncThunk('users/getUsers', async () => {
   const response = await axios.get('http://localhost:3000/api/usuarios');
   return response.data;
